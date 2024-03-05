@@ -79,3 +79,5 @@ Check out the [deployment documentation](https://nuxt.com/docs/getting-started/d
 passende Node-Version verwenden (gerade Versionen sind LTS, derzeit v18 oder v20)
 - https://nodejs.org/en/about/previous-releases
 - https://nuxt.com/docs/getting-started/installation
+
+- hier nun die Änderungen
