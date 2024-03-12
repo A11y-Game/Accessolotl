@@ -1,4 +1,8 @@
-# Nuxt 3 Minimal Starter
+# A11Y-Game ♿
+## Installation
+- passende [Node-Version](https://nodejs.org/en/about/previous-releases) verwenden (gerade Versionen sind LTS, derzeit v18 oder v20)
+
+# Weitere Informationen
 
 Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
@@ -73,11 +77,3 @@ bun run preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
-
----
-
-passende Node-Version verwenden (gerade Versionen sind LTS, derzeit v18 oder v20)
-- https://nodejs.org/en/about/previous-releases
-- https://nuxt.com/docs/getting-started/installation
-
-- hier nun die Änderungen

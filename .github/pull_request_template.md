@@ -5,7 +5,6 @@
 - [ ] Unit Tests für die neue Funktionalität geschrieben
 - [ ] Design erledigt
   - [ ] WCAG Level A erfüllt
-  - [ ] Responsive Design
   - [ ] Light- und Darkmode unterstützt
 - [ ] US vom PO abgenommen inkl. Design
 - [ ] Screenshots der neuen Funktionalität hier hinzugefügt
