@@ -1,6 +1,10 @@
 # A11Y-Game ♿
 ## Installation
 - passende [Node-Version](https://nodejs.org/en/about/previous-releases) verwenden (gerade Versionen sind LTS, derzeit v18 oder v20)
+  - v20.6.0 funktioniert nicht mit nuxt offenbar
+- `npm install`
+- `npm run dev`
+- Formatieren im Editor (VSCode: `Shift + Alt + F`) oder alles mit `npm run prettier` formatieren
 
 # Weitere Informationen
 
