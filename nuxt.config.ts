@@ -1,6 +1,4 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-import Typography from '@tailwindcss/typography'
-
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ['@nuxtjs/tailwindcss', '@nuxt/content'],
@@ -12,8 +10,6 @@ export default defineNuxtConfig({
     }
   },
   tailwindcss: {
-    config: {
-      plugins: [Typography()]
-    }
+    // see in tailwind.config.js, not here
   },
 });
