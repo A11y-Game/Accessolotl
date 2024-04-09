@@ -41,11 +41,11 @@ export default {
     </div>
 
     <div class="flex h-full flex-row">
-      <div class="prose rounded border-2 border-accent p-4">
+      <div class="prose rounded border-2 border-accent p-4 text-base">
         <ContentDoc path="/alt-1" />
       </div>
       <div class="flex flex-col justify-stretch">
-        <div class="border-2">
+        <div class="border-2 text-xl">
           The image:
           <img
             src="~/assets/img/axolotl-1.jpg"
@@ -59,7 +59,7 @@ export default {
             <input
               type="text"
               v-model="code"
-              autofocus=""
+              autofocus
               autocapitalize="none"
               spellcheck="false"
               class="w-full resize-none bg-amber-100 outline-none transition-colors duration-200"
@@ -71,12 +71,13 @@ export default {
           </div>
         </div>
         <div>
-          <h2>What a visually impaired user hears</h2>
+          <h2 class="font-sansa">What a visually impaired user hears</h2>
           <p>{{ screenReader }}</p>
         </div>
         <div>
           <h2>What a user with slow internet connection sees</h2>
-          <Icon name="material-symbols:broken-image-rounded" color="gray" /> {{ altValue || '' }}
+          <Icon name="material-symbols:broken-image-rounded" color="gray" />
+          {{ altValue || "" }}
         </div>
       </div>
     </div>

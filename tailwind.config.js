@@ -20,6 +20,11 @@ export default {
         accent: "#c0216b",
         axolotl: "#FEC2DE",
       },
+      fontFamily: {
+        sans: ["Montserrat", "sans-serif"],
+        mono: ["Source Code Pro", "monospace"],
+        heading: ["Montserrat Alternates", "sans-serif"],
+      },
     },
   },
   plugins: [Typography()],
