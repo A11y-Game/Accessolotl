@@ -35,15 +35,8 @@ export default {
 };
 </script>
 <template>
-  <div class="flex h-full flex-col">
-    <div class="prose h-10">
-      Add an <code>alt</code>-tag of "axolotl in an aquarium" to the image
-    </div>
-
-    <div class="flex h-full flex-row">
-      <div class="prose rounded border-2 border-accent p-4 text-base">
-        <ContentDoc path="/alt-1" />
-      </div>
+  <div class="flex h-full flex-row">
+    <div class="flex h-full flex-col flex-auto w-2/3">
       <div class="flex flex-col justify-stretch">
         <div class="border-2 text-xl">
           The image:
@@ -53,7 +46,19 @@ export default {
             rounded
           />
         </div>
-        <div class="border-2">
+
+        <div>
+          <h2 class="font-sansa">What a visually impaired user hears</h2>
+          <p>{{ screenReader }}</p>
+        </div>
+        <div>
+          <h2>What a user with slow internet connection sees</h2>
+          <Icon name="material-symbols:broken-image-rounded" color="gray" />
+          {{ altValue || "" }}
+        </div>
+      </div>
+
+      <div class="border-2">
           <div class="border-2 font-mono">
             <div class="whitespace-pre-wrap">{{ before }}</div>
             <input
@@ -70,16 +75,12 @@ export default {
             <div class="whitespace-pre-wrap">{{ after }}</div>
           </div>
         </div>
-        <div>
-          <h2 class="font-sansa">What a visually impaired user hears</h2>
-          <p>{{ screenReader }}</p>
-        </div>
-        <div>
-          <h2>What a user with slow internet connection sees</h2>
-          <Icon name="material-symbols:broken-image-rounded" color="gray" />
-          {{ altValue || "" }}
-        </div>
-      </div>
+
+    </div>
+
+  
+    <div class="prose dark:prose-invert rounded border-2 border-accent bg-bg-light p-8 overflow-y-auto text-base flex-auto w-1/3 dark:bg-[#293e74]">
+        <ContentDoc path="/alt-1" />
     </div>
   </div>
 </template>
