@@ -50,8 +50,7 @@ export default {
         sans: ["Montserrat", "sans-serif"],
         mono: ["Source Code Pro", "monospace"],
         heading: ["Montserrat Alternates", "sans-serif"],
-  },
-    
+      },
     },
   },
   plugins: [Typography()],

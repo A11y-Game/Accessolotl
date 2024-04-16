@@ -104,10 +104,15 @@ export default {
       </div>
     </div>
 
-    <div
-      class="prose flex-1 overflow-y-auto rounded-2xl border-2 border-accent bg-bg-light p-8 text-base dark:prose-invert dark:bg-[#293e74]"
-    >
-      <ContentDoc path="/alt-1" />
+    <div class="flex flex-1 flex-col items-stretch gap-8">
+      <div
+        class="prose prose-sm flex-1 overflow-y-auto rounded-2xl border-2 bg-bg-light p-8 text-base dark:prose-invert dark:bg-[#293e74]"
+      >
+        <ContentDoc path="/alt-1" />
+      </div>
+      <button class="rounded-2xl border-2 p-1">
+        <Icon name="ic:round-navigate-next" class="size-12" />
+      </button>
     </div>
   </div>
 </template>
