@@ -1,4 +1,15 @@
-<script lang="ts">
+<script>
+import VueMarkdown from "vue-markdown-render";
+
+const md = `\`alt\`-tags, what are they for, again? Right, they exist to provide some form of “alternative text”. But what’s that for?
+
+It turns out that not everybody can simply look at an image on a webpage to understand what it is about. Visually impaired users use screen-readers, that, well, read out loud what’s on the screen, more or less. And a screen reader – a stupid algorithm – doesn’t understand what the image is about without our help: an \`alt\`-tag.
+
+\`alt\`-tags not only help the visually impaired: Imagine you’re in the countryside visiting your slightly annoying uncle living in the back of beyond, and your internet connection is unfathomably slow. You might not be able to load the image! But with the help of an \`alt\`-tag you can still understand what the image is about. The same also applies to search engines!
+
+## Links
+- [Images Tutorial at Web Accessibility Initiative](https://www.w3.org/WAI/tutorials/images/)`;
+
 export default {
   data() {
     return {
@@ -6,6 +17,7 @@ export default {
     <p>Axolotls are listed as critically endangered in the wild.</p>`,
       code: `    <img src="axolotl.jpg"></img>`,
       after: `</body>`,
+      md,
     };
   },
   computed: {
@@ -31,6 +43,9 @@ export default {
     screenReader() {
       return `Image: ${this.altValue || "axolotl.jpg"}`;
     },
+  },
+  components: {
+    VueMarkdown,
   },
 };
 </script>
@@ -108,7 +123,7 @@ export default {
       <div
         class="prose prose-sm flex-1 overflow-y-auto rounded-2xl border-2 bg-bg-light p-8 text-base dark:prose-invert dark:bg-[#293e74]"
       >
-        <ContentDoc path="/alt-1" />
+        <VueMarkdown :source="md" />
       </div>
       <button class="rounded-2xl border-2 p-1">
         <Icon name="ic:round-navigate-next" class="size-12" />
