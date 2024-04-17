@@ -1,11 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: [
-    "@nuxtjs/tailwindcss",
-    "nuxt-icon",
-    "@nuxtjs/google-fonts",
-  ],
+  modules: ["@nuxtjs/tailwindcss", "nuxt-icon", "@nuxtjs/google-fonts"],
   app: {
     head: {
       link: [{ rel: "icon", type: "image/svg", href: "/accessolotl.svg" }],
@@ -34,5 +30,15 @@ export default defineNuxtConfig({
     },
     download: true,
     display: "swap",
+  },
+  postcss: {
+    plugins: {
+      tailwindcss: {},
+      autoprefixer: {},
+      cssnano:
+        process.env.NODE_ENV === "production"
+          ? { preset: ["default", { discardComments: { removeAll: true } }] }
+          : false, // disable cssnano when not in production
+    },
   },
 });
