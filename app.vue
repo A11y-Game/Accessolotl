@@ -1,18 +1,5 @@
 <script>
 export default {
-	setup() {
-		definePageMeta({
-			middleware: [
-				function (to, from) {
-					if (to.params.id === 'levels/0') {
-						abortNavigation();
-						console.log('Test');
-					}
-					this.levelNumber = useRoute().fullPath.split('/')[2]
-				}
-			],
-		});
-	},
 	mounted() {
 		if (localStorage.getItem('color-theme') === 'dark' ||
 			(!('color-theme' in localStorage) &&
@@ -20,7 +7,7 @@ export default {
 			document.documentElement.classList.add('dark');
 		} else {
 			document.documentElement.classList.remove('dark');
-		}		
+		}
 	},
 	data() {
 		return {
