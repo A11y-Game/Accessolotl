@@ -11,7 +11,6 @@ export default {
 	},
 	data() {
 		return {
-			levelNumber: this.levelNumber = useRoute().fullPath.split('/')[2],
 			levelCount: 20
 		}
 	},
@@ -20,11 +19,9 @@ export default {
 			if (localStorage.getItem('color-theme')) {
 				if (localStorage.getItem('color-theme') === 'light') {
 					document.documentElement.classList.add('dark');
-					document.querySelectorAll('NuxtLink').forEach((el) => el.classList.add('dark'));
 					localStorage.setItem('color-theme', 'dark');
 				} else {
 					document.documentElement.classList.remove('dark');
-					document.querySelectorAll('NuxtLink').forEach((el) => el.classList.remove('dark'));
 					localStorage.setItem('color-theme', 'light');
 				}
 
@@ -38,7 +35,24 @@ export default {
 				}
 			}
 		},
+		incrementLevel() {
+			this.levelNumber++;
+		},
+		decrementLevel() {
+			this.levelNumber--;
+		}
 	},
+	computed: {
+		prevLevel() {
+			return parseInt(this.levelNumber) - 1 + "";
+		},
+		nextLevel() {
+			return parseInt(this.levelNumber) + 1 + "";
+		},
+		levelNumber() {
+			return useRoute().fullPath.split('/')[2] ?? 0;
+		}
+	}
 };
 </script>
 
@@ -46,24 +60,27 @@ export default {
 	<div class="flex flex-col dark:bg-bg-dark bg-bg-light h-screen">
 		<header class="flex justify-between w-11/12 h-20 mt-6 mx-auto mb-6 items-center">
 			<div class="pr-9 flex items-center">
-				<img src="~/assets/img/accessolotl.svg" onerror="this.src='~/assets/img/accessolotl.png'"
-					class="h-11 dark:hidden">
-				<img src="~/assets/img/icons/dark/accessolotllogo-dark.svg"
-					onerror="this.src='~/assets/img/icons/dark/accessolotllogo-dark.png'"
-					class="h-11 hidden dark:block">
+				<picture class="h-11 dark:hidden">
+					<source srcset="~\assets\img\icons\light\accessolotllogo-light.svg">
+					<img src="assets\img\icons\light\accessolotllogo-light.png">
+				</picture>
+				<picture class="h-11 hidden dark:block">
+					<source srcset="assets\img\icons\dark\accessolotllogo-dark.svg">
+					<img src="assets\img\icons\dark\accessolotllogo-dark.png">
+				</picture>
 			</div>
 			<div class="flex grow items-center dark:bg-levelbar-dark bg-levelbar-light h-16 rounded-2xl">
 				<button type="button" class=" ml-12 invisible">
 					<Icon name="material-symbols:wb-sunny-outline" class="text-4xl" />
 				</button>
-				<nav class="flex justify-center items-center align-center flex-grow">
-					<NuxtLink :to="`${parseInt(levelNumber) - 1}`" @click="levelNumber--" class="mr-2">
+				<nav class="flex justify-center items-center align-center flex-grow gap-2">
+					<NuxtLink :to="prevLevel" @click="decrementLevel()">
 						<Icon name="material-symbols:arrow-back-ios-rounded"
 							class="dark:text-t-dark text-t-light text-2xl" />
 					</NuxtLink>
 					<span class="text-2xl dark:text-t-dark text-t-light">Level {{ levelNumber }} of {{ levelCount
 						}}</span>
-					<NuxtLink :to="`${parseInt(levelNumber) + 1}`" @click="levelNumber++" class="ml-2">
+					<NuxtLink :to="nextLevel" @click="incrementLevel()">
 						<Icon name="material-symbols:arrow-forward-ios-rounded"
 							class="dark:text-t-dark text-t-light text-2xl" />
 					</NuxtLink>
