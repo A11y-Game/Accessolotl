@@ -125,9 +125,14 @@ export default {
       >
         <VueMarkdown :source="md" />
       </div>
-      <button class="rounded-2xl border-2 p-1">
-        <Icon name="ic:round-navigate-next" class="size-12" />
-      </button>
+
+      <NuxtLink to="2">
+      <div class="rounded-2xl border-2 p-1 flex" :class="{
+              'bg-green-400': correct,
+            }">
+          <Icon name="ic:round-navigate-next" class="size-12 mx-auto" />
+      </div>
+    </NuxtLink>
     </div>
   </div>
 </template>

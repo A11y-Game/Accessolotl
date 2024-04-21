@@ -1,37 +1,63 @@
 <script>
 export default {
+	setup() {
+		definePageMeta({
+			middleware: [
+				function (to, from) {
+					if (to.params.id === 'levels/0') {
+						abortNavigation();
+						console.log('Test');
+					}
+					this.levelNumber = useRoute().fullPath.split('/')[2]
+				}
+			],
+		});
+	},
 	mounted() {
-		if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+		if (localStorage.getItem('color-theme') === 'dark' ||
+			(!('color-theme' in localStorage) &&
+				window.matchMedia('(prefers-color-scheme: dark)').matches)) {
 			document.documentElement.classList.add('dark');
 		} else {
 			document.documentElement.classList.remove('dark');
-		}
+		}		
 	},
 	data() {
 		return {
-			theme: localStorage.theme || 'light'
+			levelNumber: this.levelNumber = useRoute().fullPath.split('/')[2],
+			levelCount: 20
 		}
 	},
 	methods: {
 		toggleTheme() {
-			console.log("test");
-			if (this.theme === 'light') {
-				document.documentElement.classList.add('dark')
-				this.theme = 'dark';
-				localStorage.theme = 'dark';
+			if (localStorage.getItem('color-theme')) {
+				if (localStorage.getItem('color-theme') === 'light') {
+					document.documentElement.classList.add('dark');
+					document.querySelectorAll('NuxtLink').forEach((el) => el.classList.add('dark'));
+					localStorage.setItem('color-theme', 'dark');
+				} else {
+					document.documentElement.classList.remove('dark');
+					document.querySelectorAll('NuxtLink').forEach((el) => el.classList.remove('dark'));
+					localStorage.setItem('color-theme', 'light');
+				}
+
 			} else {
-				document.documentElement.classList.remove('dark')
-				this.theme = 'light';
-				localStorage.theme = 'light';
+				if (document.documentElement.classList.contains('dark')) {
+					document.documentElement.classList.remove('dark');
+					localStorage.setItem('color-theme', 'light');
+				} else {
+					document.documentElement.classList.add('dark');
+					localStorage.setItem('color-theme', 'dark');
+				}
 			}
-		}
-	}
+		},
+	},
 };
 </script>
 
 <template>
-	<div class="h-full flex flex-col dark:bg-bg-dark bg-bg-light">
-		<header class="flex justify-between w-11/12 h-20 mt-16 mx-auto mb-6 items-center">
+	<div class="flex flex-col dark:bg-bg-dark bg-bg-light h-screen">
+		<header class="flex justify-between w-11/12 h-20 mt-6 mx-auto mb-6 items-center">
 			<div class="pr-9 flex items-center">
 				<img src="~/assets/img/accessolotl.svg" onerror="this.src='~/assets/img/accessolotl.png'"
 					class="h-11 dark:hidden">
@@ -44,12 +70,13 @@ export default {
 					<Icon name="material-symbols:wb-sunny-outline" class="text-4xl" />
 				</button>
 				<nav class="flex justify-center items-center align-center flex-grow">
-					<NuxtLink to="" class="mr-2">
+					<NuxtLink :to="`${parseInt(levelNumber) - 1}`" @click="levelNumber--" class="mr-2">
 						<Icon name="material-symbols:arrow-back-ios-rounded"
 							class="dark:text-t-dark text-t-light text-2xl" />
 					</NuxtLink>
-					<span class="text-2xl dark:text-t-dark text-t-light">Level 1 of 3</span>
-					<NuxtLink to="" class="ml-2">
+					<span class="text-2xl dark:text-t-dark text-t-light">Level {{ levelNumber }} of {{ levelCount
+						}}</span>
+					<NuxtLink :to="`${parseInt(levelNumber) + 1}`" @click="levelNumber++" class="ml-2">
 						<Icon name="material-symbols:arrow-forward-ios-rounded"
 							class="dark:text-t-dark text-t-light text-2xl" />
 					</NuxtLink>
@@ -61,9 +88,7 @@ export default {
 					<div class=" hidden dark:block">
 						<Icon name="material-symbols:wb-sunny-outline" class="text-t-dark text-4xl" />
 					</div>
-
 				</button>
-
 			</div>
 
 			<div class="flex justify-between items-center ml-12">
