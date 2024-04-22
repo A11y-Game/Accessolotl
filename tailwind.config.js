@@ -2,6 +2,7 @@ import Typography from "@tailwindcss/typography";
 
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: "class",
   content: [
     "app.vue",
     "pages/**/*.vue",
