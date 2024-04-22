@@ -64,6 +64,12 @@ export default {
     toggleHint() {
       this.showHint = !this.showHint;
     },
+    reset() {
+      this.before = `<body>
+    <p>Axolotls are listed as critically endangered in the wild.</p>`;
+      this.code = `    <img src="axolotl.jpg"></img>`;
+      this.showHint = false;
+    },
   },
 };
 </script>
@@ -111,10 +117,10 @@ export default {
           <div class="whitespace-pre-wrap">{{ after }}</div>
         </div>
         <div class="flex flex-col justify-center gap-3">
-          <button @click="toggleHint()" class="size-12 rounded-lg bg-axolotl-light dark:bg-axolotl-dark shadow-content-box-drop-shadow">
+          <button @click="toggleHint()" class="size-12 rounded-lg hover:bg-axolotl-dark hover:dark:bg-axolotl-light bg-axolotl-light dark:bg-axolotl-dark shadow-content-box-drop-shadow">
             <Icon name="lucide:lightbulb" class="size-8" />
           </button>
-          <button class="size-12 rounded-lg bg-blue-5-light dark:bg-blue-4 shadow-content-box-drop-shadow">
+          <button @click="reset()" class="size-12 rounded-lg hover:bg-blue-5-dark hover:dark:bg-blue-2-dark bg-blue-5-light dark:bg-blue-4 shadow-content-box-drop-shadow">
             <Icon name="lucide:rotate-ccw" class="size-7" />
           </button>
         </div>
