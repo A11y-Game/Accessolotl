@@ -159,7 +159,7 @@ export default {
 
       <NuxtLink to="2">
         <div
-          class="flex justify-center rounded-2xl p-1 dark:text-bg-blue-1-dark"
+          class="flex justify-center rounded-2xl p-1 dark:text-blue-1-dark"
           :class="{
             'bg-button-active dark:bg-button-active': correct,
             'bg-button-disabled dark:bg-button-disabled': !correct,

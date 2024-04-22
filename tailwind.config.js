@@ -14,8 +14,8 @@ export default {
       colors: {
         "text-dark": "#F5F5F5",
         "text-light": "#1F2937",
-        "bg-blue-1-dark": "#23335C",
-        "bg-blue-1-light": "#F4F7FB",
+        "blue-1-dark": "#23335C",
+        "blue-1-light": "#F4F7FB",
         "blue-2-dark": "#273C6E",
         "blue-2-light": "#CDD6E8",
         "blue-3-dark": "#29447F",

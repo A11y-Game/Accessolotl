@@ -57,7 +57,7 @@ export default {
 </script>
 
 <template>
-	<div class="flex flex-col dark:bg-bg-blue-1-dark bg-bg-blue-1-light h-screen">
+	<div class="flex flex-col dark:bg-blue-1-dark bg-blue-1-light h-screen">
 		<header class="flex justify-between w-11/12 h-20 mt-6 mx-auto mb-6 items-center">
 			<div class="pr-9 flex items-center">
 				<picture class="h-11 dark:hidden">
