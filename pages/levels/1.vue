@@ -19,8 +19,7 @@ export default {
       after: `</body>`,
       md,
       showHint: false,
-      hint: `
-    <--! Add an \'alt\'-tag of “axolotl in an aquarium” to the image -->`,
+      hint: `    <--! Add an \'alt\'-tag of “axolotl in an aquarium” to the image -->`,
     };
   },
   computed: {
@@ -38,24 +37,15 @@ export default {
     },
 
     correct() {
-      return this.code.match(/alt=["].*axolotl.*["]/) || this.code.match(/alt=['].*axolotl.*[']/);
+      return (
+        this.code.match(/alt=["].*axolotl.*["]/) ||
+        this.code.match(/alt=['].*axolotl.*[']/)
+      );
     },
 
     screenReader() {
       return `Image: ${this.altValue || "axolotl.jpg"}`;
     },
-
-    hint() {
-      if (this.showHint) {
-      this.before= `<body>
-    <p>Axolotls are listed as critically endangered in the wild.</p>
-    <--! Add an \'alt\'-tag of “axolotl in an aquarium” to the image -->`;
-      } else {
-        this.before= `<body>
-    <p>Axolotls are listed as critically endangered in the wild.</p>`;
-    }
-      return this.showHint ? true : false;
-    }
   },
   components: {
     VueMarkdown,
@@ -65,8 +55,6 @@ export default {
       this.showHint = !this.showHint;
     },
     reset() {
-      this.before = `<body>
-    <p>Axolotls are listed as critically endangered in the wild.</p>`;
       this.code = `    <img src="axolotl.jpg"></img>`;
       this.showHint = false;
     },
@@ -75,21 +63,31 @@ export default {
 </script>
 <template>
   <div class="flex h-full flex-1 flex-row items-stretch gap-8 px-16 pb-16">
-    <div class="flex flex-[3] flex-col items-stretch gap-8 overflow-y-auto text-lg">
-      <div class="flex-none rounded-2xl border-2 p-4 text-center font-heading text-2xl font-semibold border-blue-4 dark:bg-blue-3-dark bg-blue-3-light shadow-content-box-drop-shadow">
+    <div
+      class="flex flex-[3] flex-col items-stretch gap-8 overflow-y-auto text-lg"
+    >
+      <div
+        class="flex-none rounded-2xl border-2 border-blue-4 bg-blue-3-light p-4 text-center font-heading text-2xl font-semibold shadow-content-box-drop-shadow dark:bg-blue-3-dark"
+      >
         <p>Oh no! The 'alt'-tag is missing!</p>
       </div>
       <div
-        class="flex flex-1 flex-row gap-8 rounded-2xl border-2 p-8 pt-6 *:flex *:flex-1 *:flex-col *:items-center *:gap-4 border-blue-4 dark:bg-blue-3-dark bg-blue-3-light shadow-content-box-drop-shadow">
+        class="flex flex-1 flex-row gap-8 rounded-2xl border-2 border-blue-4 bg-blue-3-light p-8 pt-6 shadow-content-box-drop-shadow *:flex *:flex-1 *:flex-col *:items-center *:gap-4 dark:bg-blue-3-dark"
+      >
         <div class="">
           <Icon name="mdi:eye-outline" size="2rem" />
-          <img src="~/assets/img/axolotl-1.jpg" alt="axolotl in an aquarium"
-            class="flex-1 self-stretch rounded-2xl object-cover" />
+          <img
+            src="~/assets/img/axolotl-1.jpg"
+            alt="axolotl in an aquarium"
+            class="flex-1 self-stretch rounded-2xl object-cover"
+          />
         </div>
 
         <div>
           <Icon name="material-symbols:hearing" size="2rem" />
-          <div class="grid flex-1 place-items-center self-stretch text-pretty rounded-2xl p-4 text-center bg-blue-5-light dark:bg-blue-5-dark">
+          <div
+            class="grid flex-1 place-items-center self-stretch text-pretty rounded-2xl bg-blue-5-light p-4 text-center dark:bg-blue-5-dark"
+          >
             <p>{{ screenReader }}</p>
           </div>
         </div>
@@ -97,7 +95,9 @@ export default {
         <div>
           <Icon name="ic:twotone-wifi-off" size="2rem" />
 
-          <div class="grid flex-1 place-items-center self-stretch rounded-2xl p-4 bg-blue-5-light dark:bg-blue-5-dark">
+          <div
+            class="grid flex-1 place-items-center self-stretch rounded-2xl bg-blue-5-light p-4 dark:bg-blue-5-dark"
+          >
             <p>
               <Icon name="material-symbols:broken-image-rounded" />
               {{ altValue || "" }}
@@ -106,21 +106,44 @@ export default {
         </div>
       </div>
 
-      <div class="flex flex-none gap-2 rounded-2xl p-3 bg-blue-3-light dark:bg-blue-5-dark">
-        <div class="flex-1 rounded-2xl p-2 font-mono bg-blue-5-light dark:bg-blue-4">
+      <div
+        class="flex flex-none gap-2 rounded-2xl bg-blue-3-light p-3 dark:bg-blue-5-dark"
+      >
+        <div
+          class="flex-1 rounded-2xl bg-blue-5-light p-2 font-mono dark:bg-blue-4"
+        >
           <div class="whitespace-pre-wrap">{{ before }}</div>
-          <input type="text" v-model="code" autofocus autocapitalize="none" spellcheck="false"
-            class="w-full resize-none outline-none transition-colors duration-200 bg-inherit" :class="{
-              'bg-input-correct-highlight dark:bg-input-correct-highlight': correct,
-              '!bg-hint-highlight-light dark:!bg-hint-highlight-dark': hint,
-            }" />
+          <div
+            v-if="showHint"
+            class="whitespace-pre-wrap bg-hint-highlight-light dark:bg-hint-highlight-dark"
+          >
+            {{ hint }}
+          </div>
+          <input
+            type="text"
+            v-model="code"
+            autofocus
+            autocapitalize="none"
+            spellcheck="false"
+            class="w-full resize-none outline-none transition-colors duration-200"
+            :class="{
+              'bg-input-correct-highlight': correct,
+              'bg-hint-highlight-light dark:bg-hint-highlight-dark': !correct,
+            }"
+          />
           <div class="whitespace-pre-wrap">{{ after }}</div>
         </div>
         <div class="flex flex-col justify-center gap-3">
-          <button @click="toggleHint()" class="size-12 rounded-lg hover:bg-axolotl-dark hover:dark:bg-axolotl-light bg-axolotl-light dark:bg-axolotl-dark shadow-content-box-drop-shadow">
+          <button
+            @click="toggleHint"
+            class="size-12 rounded-lg bg-axolotl-light shadow-content-box-drop-shadow hover:bg-axolotl-dark dark:bg-axolotl-dark hover:dark:bg-axolotl-light"
+          >
             <Icon name="lucide:lightbulb" class="size-8" />
           </button>
-          <button @click="reset()" class="size-12 rounded-lg hover:bg-blue-5-dark hover:dark:bg-blue-2-dark bg-blue-5-light dark:bg-blue-4 shadow-content-box-drop-shadow">
+          <button
+            @click="reset"
+            class="size-12 rounded-lg bg-blue-5-light shadow-content-box-drop-shadow hover:bg-blue-5-dark dark:bg-blue-4 hover:dark:bg-blue-2-dark"
+          >
             <Icon name="lucide:rotate-ccw" class="size-7" />
           </button>
         </div>
@@ -129,15 +152,19 @@ export default {
 
     <div class="flex flex-1 flex-col items-stretch gap-8">
       <div
-        class="prose prose-lg flex-1 overflow-y-auto rounded-2xl border-2 p-8 dark:prose-invert border-blue-4 dark:bg-blue-3-dark bg-blue-3-light shadow-content-box-drop-shadow">
+        class="prose prose-lg flex-1 overflow-y-auto rounded-2xl border-2 border-blue-4 bg-blue-3-light p-8 shadow-content-box-drop-shadow dark:prose-invert dark:bg-blue-3-dark"
+      >
         <VueMarkdown :source="md" />
       </div>
 
       <NuxtLink to="2">
-        <div class="rounded-2xl p-1 flex justify-center  dark:text-bg-blue-1-dark" :class="{
-              'bg-button-active dark:bg-button-active': correct,
-              'bg-button-disabled dark:bg-button-disabled': !correct,
-            }">
+        <div
+          class="flex justify-center rounded-2xl p-1 dark:text-bg-blue-1-dark"
+          :class="{
+            'bg-button-active dark:bg-button-active': correct,
+            'bg-button-disabled dark:bg-button-disabled': !correct,
+          }"
+        >
           <Icon name="ic:round-navigate-next" class="size-12" />
         </div>
       </NuxtLink>
