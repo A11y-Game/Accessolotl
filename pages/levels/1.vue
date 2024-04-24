@@ -64,10 +64,10 @@ export default {
 <template>
   <div class="flex h-full flex-1 flex-row items-stretch gap-8 px-16 pb-16">
     <div
-      class="flex flex-[3] flex-col items-stretch gap-8 overflow-y-auto text-lg"
+      class="flex flex-[3] flex-col items-stretch gap-8 overflow-y-auto text-base"
     >
       <div
-        class="flex-none rounded-2xl border-2 border-blue-4 bg-blue-3-light p-4 text-center font-heading text-2xl font-semibold shadow-large-drop-shadow dark:bg-blue-3-dark"
+        class="flex-none rounded-2xl border-2 border-blue-4 bg-blue-3-light p-4 text-center font-heading text-xl font-semibold shadow-large-drop-shadow dark:bg-blue-3-dark"
       >
         <p>Oh no! The 'alt'-tag is missing!</p>
       </div>
@@ -152,7 +152,7 @@ export default {
 
     <div class="flex flex-1 flex-col items-stretch gap-8">
       <div
-        class="prose prose-lg flex-1 overflow-y-auto rounded-2xl border-2 border-blue-4 bg-blue-3-light p-8 shadow-large-drop-shadow dark:prose-invert dark:bg-blue-3-dark"
+        class="prose prose-base flex-1 overflow-y-auto rounded-2xl border-2 border-blue-4 bg-blue-3-light p-8 pt-1 shadow-large-drop-shadow dark:prose-invert dark:bg-blue-3-dark"
       >
         <VueMarkdown :source="md" />
       </div>
