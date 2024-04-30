@@ -8,18 +8,6 @@ export default defineComponent({
       currentCode: this.defaultCode
     };
   },
-  watch: {
-    isCorrect(newValue) {
-      if (newValue) {
-        this.$emit('solved');
-      }
-    }
-  },
-  computed: {
-    isCorrect(): boolean {
-      return this.check(this.currentCode);
-    },
-  },
   methods: {
     toggleHint() {
       this.showHint = !this.showHint;
@@ -27,6 +15,17 @@ export default defineComponent({
     reset() {
       this.currentCode = this.defaultCode;
       this.showHint = false;
+    },
+  },
+  computed: {
+    code: {
+      get() {
+        return this.currentCode;
+      },
+      set(value: string) {
+        this.currentCode = value;
+        this.$emit("update:currentCode", value);
+      },
     },
   },
   props: {
@@ -46,12 +45,16 @@ export default defineComponent({
       type: String,
       required: true,
     },
-    check: {
-      type: Function,
-      required: true
+    isCorrect: {
+      type: Boolean,
+      required: true,
+    },
+    currentCode: {
+      type: String,
+      required: true,
     },
   },
-  emits: ['solved'],
+  emits: ['update:currentCode'],
 });
 </script>
 <template>
@@ -70,7 +73,7 @@ export default defineComponent({
       </div>
       <input
         type="text"
-        v-model="currentCode"
+        v-model="code"
         autofocus
         autocapitalize="none"
         spellcheck="false"
