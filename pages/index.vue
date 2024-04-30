@@ -58,7 +58,7 @@
         </picture>
         <NuxtLink
           to="levels/1"
-          class="mx-48 mt-8 flex h-16 w-96 items-center justify-center rounded-2xl bg-button-active p-1 font-heading text-3xl font-semibold"
+          class="mx-48 mt-6 flex h-16 w-96 items-center justify-center rounded-2xl bg-button-active p-1 font-heading text-3xl font-semibold shadow-content-box-drop-shadow"
         >
           Play
         </NuxtLink>
@@ -69,9 +69,66 @@
           <img src="assets\img\icons\dark\homepage-arrow-axolotl-dark.png" />
         </picture>
       </div>
-      <div class="row flex place-content-around font-heading">
-        <p>accessibility</p>
-        <p class="text-axolotl-light">axolotl</p>
+      <div class="row mb-48 flex place-content-around font-heading">
+        <p class="w-96">accessibility</p>
+        <p class="w-96 text-axolotl-light">axolotl</p>
+      </div>
+      <div class="mx-52 border-b-4 border-solid border-blue-4 p-5 text-3xl">
+        <p class="text-4xl font-bold">What are we doing?</p>
+        <p>
+          Our Project aims to teach society how important web-accessibility is.
+          We want to show what an accessible website means to disabled people
+          and how it can improve their experience. Our mascot, axolotl, is
+          helping users to understand the importance of implementing
+          accessibility features.
+        </p>
+        <div class="my-8 flex justify-center">
+          <picture class="">
+            <source srcset="assets\img\icons\accessolotl-logo.svg" />
+            <img src="assets\img\icons\accessolotl-logo.png" />
+          </picture>
+        </div>
+        <p class="text-4xl font-bold">What is WCAG?</p>
+        <p>
+          We follow the Web Content Accessibility Guidelines (WCAG) 2.1 to make
+          content for our website more accessible to a wider range of people
+          with disabilities. Additionally, we strive to meet Level AA
+          conformance for our own website.
+        </p>
+        <a
+          href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1"
+          class="underline decoration-solid"
+          >Get more information here!</a
+        >
+      </div>
+      <div class="my-16 text-4xl font-bold underline decoration-solid">
+        <p>About us</p>
+      </div>
+      <div class="flex place-content-evenly text-2xl">
+        <div>
+          <div
+            class="mb-4 h-[250px] w-[250px] rounded-full bg-[url('assets/img/axolotl-portrait-marco.jpg')] bg-cover bg-center hover:bg-[url('assets/img/marco.jpg')]"
+          ></div>
+          <p class="font-semibold">Marco Janderka</p>
+          <p>Product Owner</p>
+        </div>
+        <div>
+          <div
+            class="mb-4 h-[250px] w-[250px] rounded-full bg-[url('assets/img/axolotl-portrait-lisa.jpg')] bg-cover bg-center hover:bg-[url('assets/img/lisa.jpg')]"
+          ></div>
+          <p class="font-semibold">Lisa-Marie Hörmann</p>
+          <p>Scrum Master</p>
+        </div>
+        <div>
+          <div
+            class="mb-4 h-[250px] w-[250px] rounded-full bg-[url('assets/img/axolotl-portrait-felix.jpg')] bg-cover bg-center hover:bg-[url('assets/img/felix.jpg')]"
+          ></div>
+          <p class="font-semibold">Felix Wollmann</p>
+          <p>Projektmitglied</p>
+        </div>
+      </div>
+      <div class="mt-16 text-2xl underline decoration-solid">
+        <p>Impressum</p>
       </div>
     </div>
   </div>
