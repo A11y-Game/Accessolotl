@@ -161,8 +161,8 @@ export default {
         <div
           class="flex justify-center rounded-2xl p-1 dark:text-blue-1-dark"
           :class="{
-            'bg-button-active dark:bg-button-active': correct,
-            'bg-button-disabled dark:bg-button-disabled': !correct,
+            'bg-button-active': correct,
+            'bg-button-disabled': !correct,
           }"
         >
           <Icon name="ic:round-navigate-next" class="size-12" />

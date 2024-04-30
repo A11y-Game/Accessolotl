@@ -1,6 +1,6 @@
 <template>
-  <div class="homepage-gradient flex h-screen flex-col overflow-scroll p-16">
-    <div class="flex place-content-between items-center">
+  <div class="flex flex-col bg-button-active">
+    <div class="flex items-center pr-9">
       <picture class="h-11 dark:hidden">
         <source srcset="~\assets\img\icons\light\accessolotllogo-light.svg" />
         <img src="assets\img\icons\light\accessolotllogo-light.png" />
@@ -9,7 +9,13 @@
         <source srcset="assets\img\icons\dark\accessolotllogo-dark.svg" />
         <img src="assets\img\icons\dark\accessolotllogo-dark.png" />
       </picture>
-      <button type="button" class="ml-auto mr-8" @click="toggleTheme()">
+    </div>
+    <div class="flex h-16 grow items-center rounded-2xl">
+      <button type="button" class="invisible ml-12">
+        <Icon name="material-symbols:wb-sunny-outline" class="text-4xl" />
+      </button>
+
+      <button type="button" class="ml-auto mr-16" @click="toggleTheme()">
         <div class="dark:hidden">
           <Icon
             name="material-symbols:dark-mode-outline"
@@ -23,61 +29,60 @@
           />
         </div>
       </button>
-      <NuxtLink
-        to="levels/1"
-        class="flex h-11 w-64 items-center justify-center rounded-2xl bg-button-active p-1 font-heading text-2xl font-semibold"
+    </div>
+
+    <NuxtLink to="levels/1">
+      <div
+        class="ml-8 mr-16 flex flex-1 items-stretch justify-center rounded-2xl bg-button-active p-1"
       >
         Play
-      </NuxtLink>
-    </div>
-    <div class="mt-32 flex-1 justify-center text-center text-6xl">
-      <p class="font-heading">Welcome to</p>
-      <div class="mb-8 mt-12 flex justify-center">
-        <picture class="h-36 dark:hidden">
+      </div>
+    </NuxtLink>
+    <div
+      class="flex-1flex h-0 flex-col items-center text-text-light dark:text-text-dark"
+    >
+      <div class="text-4xl">
+        <p>Welcome to</p>
+      </div>
+      <div class="flex items-center pr-9">
+        <picture class="h-11 dark:hidden">
           <source srcset="~\assets\img\icons\light\accessolotllogo-light.svg" />
           <img src="assets\img\icons\light\accessolotllogo-light.png" />
         </picture>
-        <picture class="hidden h-36 dark:block">
-          <source
-            srcset="assets\img\icons\dark\homepage-accessolotllogo-dark.svg"
-          />
-          <img src="assets\img\icons\dark\homepage-accessolotllogo-dark.png" />
+        <picture class="hidden h-11 dark:block">
+          <source srcset="assets\img\icons\dark\accessolotllogo-dark.svg" />
+          <img src="assets\img\icons\dark\accessolotllogo-dark.png" />
         </picture>
       </div>
-      <p class="mb-12 text-3xl font-semibold">
-        your place to learn web-accessibility
-      </p>
-      <div class="flex justify-center">
-        <picture class="hidden h-36 dark:block">
-          <source
-            srcset="assets\img\icons\dark\homepage-arrow-accessibility-dark.svg"
-          />
-          <img
-            src="assets\img\icons\dark\homepage-arrow-accessibility-dark.png"
-          />
-        </picture>
-        <NuxtLink
-          to="levels/1"
-          class="mx-48 mt-8 flex h-16 w-96 items-center justify-center rounded-2xl bg-button-active p-1 font-heading text-3xl font-semibold"
-        >
-          Play
-        </NuxtLink>
-        <picture class="hidden h-36 dark:block">
-          <source
-            srcset="assets\img\icons\dark\homepage-arrow-axolotl-dark.svg"
-          />
-          <img src="assets\img\icons\dark\homepage-arrow-axolotl-dark.png" />
-        </picture>
-      </div>
-      <div class="row flex place-content-around font-heading">
-        <p>accessibility</p>
-        <p class="text-axolotl-light">axolotl</p>
+      <div class="text-xl">
+        <p>your place to learn web accessibility</p>
       </div>
     </div>
+    <div>
+      <picture class="">
+        <img
+          src="assets\img\icons\dark\homepage-arrow-accessibility-dark.png"
+          alt="white arrow point from the logo accessolotl to the word accessibility to indicate, that accessibility is included in the name of the website"
+        />
+      </picture>
+      <picture class="">
+        <img
+          src="assets\img\icons\dark\homepage-arrow-axolotl-dark.png"
+          alt="pink arrow point from the logo accessolotl to the word axolotl to indicate, that axolotl is included in the name of the website"
+        />
+      </picture>
+    </div>
   </div>
+  <div class="text-2xl">
+    <p>accessibility</p>
+  </div>
+  <div class="text-2xl text-axolotl-light">
+    <p>axolotl</p>
+  </div>
+  <p></p>
 </template>
 
-<script lang="ts">
+<script>
 export default {
   mounted() {
     if (
@@ -114,8 +119,4 @@ export default {
 };
 </script>
 
-<style>
-.homepage-gradient {
-  background: linear-gradient(rgb(51, 78, 153), rgb(35, 51, 92));
-}
-</style>
+<style></style>
