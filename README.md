@@ -32,9 +32,7 @@ Created by 3 students of [HTL Rennweg](https://www.htl.rennweg.at/) located in V
 
 Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
-### Setup
-
-Make sure to install the dependencies:
+### Make sure to install the dependencies:
 
 ```bash
 # npm
