@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 
-export const useMyProgressStoreStore = defineStore("ProgresStore", {
+export const useProgressStore = defineStore("progress", {
   state: () => ({
     progress: 0,
     currentLevel: 1,
