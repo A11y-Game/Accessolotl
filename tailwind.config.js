@@ -30,6 +30,8 @@ export default {
         "hint-highlight-dark": "rgba(254, 194, 222, 0.15)",
         "hint-highlight-light": "rgba(192, 33, 107, 0.15)",
         "input-correct-highlight": "rgba(82, 196, 64, 0.15)",
+        "homepage-gradient-dark":
+          "linear-gradient(rgb(51, 78, 153), rgb(35, 51, 92))",
       },
       boxShadow: {
         "content-box-drop-shadow": "0px 8px 8px rgba(0, 0, 0, 0.25)",
