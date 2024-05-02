@@ -62,9 +62,9 @@ export default {
 };
 </script>
 <template>
-  <div class="flex h-full flex-1 flex-row items-stretch gap-8 px-16 pb-16">
+  <div class="flex h-full flex-1 flex-row items-stretch gap-8 px-16 pb-12">
     <div
-      class="flex flex-[3] flex-col items-stretch gap-8 overflow-y-auto text-base"
+      class="flex flex-[3] flex-col items-stretch gap-8 overflow-y-auto text-base pb-3"
     >
       <div
         class="flex-none rounded-2xl border-2 border-blue-4 bg-blue-3-light p-4 text-center font-heading text-xl font-semibold shadow-large-drop-shadow dark:bg-blue-3-dark"
@@ -150,7 +150,7 @@ export default {
       </div>
     </div>
 
-    <div class="flex flex-1 flex-col items-stretch gap-8">
+    <div class="flex flex-1 flex-col items-stretch gap-8 pb-3">
       <div
         class="prose prose-base flex-1 overflow-y-auto rounded-2xl border-2 border-blue-4 bg-blue-3-light p-8 pt-1 shadow-large-drop-shadow dark:prose-invert dark:bg-blue-3-dark"
       >
