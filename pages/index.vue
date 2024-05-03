@@ -1,5 +1,7 @@
 <template>
-  <div class="homepage-gradient flex h-screen flex-col overflow-scroll p-16">
+  <div
+    class="flex h-screen flex-col overflow-scroll bg-gradient-to-b from-blue-1-light to-blue-5-light p-16 dark:bg-gradient-to-b dark:from-blue-4 dark:to-blue-1-dark"
+  >
     <div class="flex place-content-between items-center">
       <picture class="h-11 dark:hidden">
         <source srcset="~\assets\img\icons\light\accessolotllogo-light.svg" />
@@ -34,8 +36,12 @@
       <p class="font-heading">Welcome to</p>
       <div class="mb-8 mt-12 flex justify-center">
         <picture class="h-36 dark:hidden">
-          <source srcset="~\assets\img\icons\light\accessolotllogo-light.svg" />
-          <img src="assets\img\icons\light\accessolotllogo-light.png" />
+          <source
+            srcset="~\assets\img\icons\light\homepage-accessolotllogo-light.svg"
+          />
+          <img
+            src="assets\img\icons\light\homepage-accessolotllogo-light.png"
+          />
         </picture>
         <picture class="hidden h-36 dark:block">
           <source
@@ -48,6 +54,14 @@
         your place to learn web-accessibility
       </p>
       <div class="flex justify-center">
+        <picture class="h-36 dark:hidden">
+          <source
+            srcset="assets\img\icons\light\homepage-arrow-accessibility-light.svg"
+          />
+          <img
+            src="assets\img\icons\light\homepage-arrow-accessibility-light.png"
+          />
+        </picture>
         <picture class="hidden h-36 dark:block">
           <source
             srcset="assets\img\icons\dark\homepage-arrow-accessibility-dark.svg"
@@ -62,6 +76,14 @@
         >
           Play
         </NuxtLink>
+        <picture class="h-36 dark:hidden">
+          <source
+            srcset="assets\img\icons\light\homepage-arrow-axolotl-light.svg"
+          />
+          <img
+            src="assets\img\icons\light\homepage-arrow-axolotl-light.png"
+          />
+        </picture>
         <picture class="hidden h-36 dark:block">
           <source
             srcset="assets\img\icons\dark\homepage-arrow-axolotl-dark.svg"
@@ -71,11 +93,13 @@
       </div>
       <div class="row mb-48 flex place-content-around font-heading">
         <p class="w-96">accessibility</p>
-        <p class="w-96 text-axolotl-light">axolotl</p>
+        <p class="w-96 text-axolotl-dark dark:text-axolotl-light">axolotl</p>
       </div>
-      <div class="mx-52 border-b-4 border-solid border-blue-4 p-5 text-3xl">
+      <div
+        class="mx-52 border-b-4 border-solid border-blue-4 p-5 text-3xl leading-tight"
+      >
         <p class="text-4xl font-bold">What are we doing?</p>
-        <p>
+        <p class="text-justify indent-6">
           Our Project aims to teach society how important web-accessibility is.
           We want to show what an accessible website means to disabled people
           and how it can improve their experience. Our mascot, axolotl, is
@@ -89,22 +113,26 @@
           </picture>
         </div>
         <p class="text-4xl font-bold">What is WCAG?</p>
-        <p>
+        <p class="text-justify indent-6">
           We follow the Web Content Accessibility Guidelines (WCAG) 2.1 to make
           content for our website more accessible to a wider range of people
           with disabilities. Additionally, we strive to meet Level AA
           conformance for our own website.
         </p>
-        <a
-          href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1"
-          class="underline decoration-solid"
-          >Get more information here!</a
-        >
+        <p>
+          <a
+            href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1"
+            class="underline decoration-solid underline-offset-4"
+            >Get more information here!</a
+          >
+        </p>
       </div>
-      <div class="my-16 text-4xl font-bold underline decoration-solid">
+      <div
+        class="my-16 text-4xl font-bold underline decoration-solid underline-offset-4"
+      >
         <p>About us</p>
       </div>
-      <div class="flex place-content-evenly text-2xl">
+      <div class="mb-24 flex place-content-evenly text-2xl">
         <div>
           <div
             class="mb-4 h-[250px] w-[250px] rounded-full bg-[url('assets/img/axolotl-portrait-marco.jpg')] bg-cover bg-center hover:bg-[url('assets/img/marco.jpg')]"
@@ -127,9 +155,12 @@
           <p>Projektmitglied</p>
         </div>
       </div>
-      <div class="mt-16 text-2xl underline decoration-solid">
+      <NuxtLink
+        to="impressum"
+        class="text-2xl underline decoration-solid underline-offset-4"
+      >
         <p>Impressum</p>
-      </div>
+      </NuxtLink>
     </div>
   </div>
 </template>
@@ -170,9 +201,3 @@ export default {
   },
 };
 </script>
-
-<style>
-.homepage-gradient {
-  background: linear-gradient(rgb(51, 78, 153), rgb(35, 51, 92));
-}
-</style>
