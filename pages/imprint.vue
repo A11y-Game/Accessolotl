@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex h-screen flex-col items-center overflow-scroll py-16 px-24 text-xl leading-relaxed bg-blue-1-light dark:bg-blue-1-dark"
+    class="flex h-screen flex-col items-center overflow-scroll bg-blue-1-light px-24 py-16 text-xl leading-relaxed dark:bg-blue-1-dark"
   >
     <p class="text-3xl font-semibold">Impressum</p>
     <div class="my-8">
@@ -19,14 +19,18 @@
       </p>
       <p>
         <b>Anwendbare Rechtsvorschrift: </b>
-        <a href="https://www.ris.bka.gv.at/" class="underline decoration-solid underline-offset-4"
+        <a
+          href="https://www.ris.bka.gv.at/"
+          class="underline decoration-solid underline-offset-4"
           >www.ris.bka.gv.at </a
         ><br />
       </p>
       <p>
         <b>Online Streitbeilegung:</b> Verbraucher haben die Möglichkeit,
         Beschwerden an die Online-Streitbeilegungsplattform der EU zu richten:
-        <a href="http://ec.europa.eu/odr/" class="underline underline-offset-4 decoration-solid"
+        <a
+          href="http://ec.europa.eu/odr/"
+          class="underline decoration-solid underline-offset-4"
           >http://ec.europa.eu/odr</a
         >. Sie können allfällige Beschwerde auch an die oben angegebene
         E-Mail-Adresse richten.
@@ -54,36 +58,44 @@
       </p>
       <p>
         Quelle:
-          <a
-            href="https://www.ortner-rechtsanwalt.at/strafrecht-festnahme-verhaftung/"
-            class="underline underline-offset-4 decoration-solid"
-            >Rechtsanwalt Wien Festnahme</a
-          >
+        <a
+          href="https://www.ortner-rechtsanwalt.at/strafrecht-festnahme-verhaftung/"
+          class="underline decoration-solid underline-offset-4"
+          >Rechtsanwalt Wien Festnahme</a
+        >
       </p>
       <p>
         Schriftarten von
-        <a href="https://fonts.google.com/" class="underline underline-offset-4 decoration-solid"
+        <a
+          href="https://fonts.google.com/"
+          class="underline decoration-solid underline-offset-4"
           >Google Fonts</a
         >.<br />
         Icons von
-        <a href="https://iconify.design/" class="underline underline-offset-4 decoration-solid"
+        <a
+          href="https://iconify.design/"
+          class="underline decoration-solid underline-offset-4"
           >iconify</a
         >.<br />
         Bilder von
-        <a href="https://unsplash.com/" class="underline underline-offset-4 decoration-solid"
+        <a
+          href="https://unsplash.com/"
+          class="underline decoration-solid underline-offset-4"
           >unsplash</a
         >,
-        <a href="https://pixabay.com/" class="underline underline-offset-4 decoration-solid"
+        <a
+          href="https://pixabay.com/"
+          class="underline decoration-solid underline-offset-4"
           >pixabay</a
         >.
       </p>
     </div>
-    <NuxtLink
-      to="/"
-      class="flex h-16 w-56 items-center justify-center rounded-2xl p-1 font-heading text-2xl font-semibold shadow-content-box-drop-shadow bg-blue-5-light dark:bg-blue-5-dark"
+    <a
+      href="/#about"
+      class="flex h-16 w-56 items-center justify-center rounded-2xl bg-blue-5-light p-1 font-heading text-2xl font-semibold shadow-content-box-drop-shadow dark:bg-blue-5-dark"
     >
       Back
-    </NuxtLink>
+    </a>
   </div>
 </template>
 

@@ -62,7 +62,9 @@ export default {
 };
 </script>
 <template>
-  <div class="flex h-full flex-1 flex-row items-stretch gap-8 px-16 pb-16">
+  <div
+    class="flex h-full flex-1 flex-row items-stretch gap-8 bg-blue-1-light px-16 pb-16 dark:bg-blue-1-dark"
+  >
     <div
       class="flex flex-[3] flex-col items-stretch gap-8 overflow-y-auto text-lg"
     >

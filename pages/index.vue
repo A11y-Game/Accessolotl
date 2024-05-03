@@ -3,14 +3,16 @@
     class="flex h-screen flex-col overflow-scroll bg-gradient-to-b from-blue-1-light to-blue-5-light p-16 dark:bg-gradient-to-b dark:from-blue-4 dark:to-blue-1-dark"
   >
     <div class="flex place-content-between items-center">
-      <picture class="h-11 dark:hidden">
-        <source srcset="~\assets\img\icons\light\accessolotllogo-light.svg" />
-        <img src="assets\img\icons\light\accessolotllogo-light.png" />
-      </picture>
-      <picture class="hidden h-11 dark:block">
-        <source srcset="assets\img\icons\dark\accessolotllogo-dark.svg" />
-        <img src="assets\img\icons\dark\accessolotllogo-dark.png" />
-      </picture>
+      <NuxtLink to="/">
+        <picture class="h-11 dark:hidden">
+          <source srcset="~\assets\img\icons\light\accessolotllogo-light.svg" />
+          <img src="assets\img\icons\light\accessolotllogo-light.png" />
+        </picture>
+        <picture class="hidden h-11 dark:block">
+          <source srcset="assets\img\icons\dark\accessolotllogo-dark.svg" />
+          <img src="assets\img\icons\dark\accessolotllogo-dark.png" />
+        </picture>
+      </NuxtLink>
       <button type="button" class="ml-auto mr-8" @click="toggleTheme()">
         <div class="dark:hidden">
           <Icon
@@ -56,7 +58,9 @@
       <div class="flex justify-center">
         <picture class="h-36 dark:hidden">
           <source
-            srcset="assets\img\icons\light\homepage-arrow-accessibility-light.svg"
+            srcset="
+              assets\img\icons\light\homepage-arrow-accessibility-light.svg
+            "
           />
           <img
             src="assets\img\icons\light\homepage-arrow-accessibility-light.png"
@@ -72,7 +76,7 @@
         </picture>
         <NuxtLink
           to="levels/1"
-          class="mx-48 mt-6 flex h-16 w-96 items-center justify-center rounded-2xl bg-button-active p-1 font-heading text-3xl font-semibold shadow-content-box-drop-shadow"
+          class="mx-32 mt-6 flex h-16 w-96 items-center justify-center rounded-2xl bg-button-active p-1 font-heading text-3xl font-semibold shadow-content-box-drop-shadow"
         >
           Play
         </NuxtLink>
@@ -80,9 +84,7 @@
           <source
             srcset="assets\img\icons\light\homepage-arrow-axolotl-light.svg"
           />
-          <img
-            src="assets\img\icons\light\homepage-arrow-axolotl-light.png"
-          />
+          <img src="assets\img\icons\light\homepage-arrow-axolotl-light.png" />
         </picture>
         <picture class="hidden h-36 dark:block">
           <source
@@ -127,12 +129,10 @@
           >
         </p>
       </div>
-      <div
-        class="my-16 text-4xl font-bold underline decoration-solid underline-offset-4"
-      >
+      <div class="my-16 text-4xl font-bold" id="about">
         <p>About us</p>
       </div>
-      <div class="mb-24 flex place-content-evenly text-2xl">
+      <div class="flex place-content-evenly text-2xl">
         <div>
           <div
             class="mb-4 h-[250px] w-[250px] rounded-full bg-[url('assets/img/axolotl-portrait-marco.jpg')] bg-cover bg-center hover:bg-[url('assets/img/marco.jpg')]"
@@ -155,12 +155,17 @@
           <p>Projektmitglied</p>
         </div>
       </div>
-      <NuxtLink
-        to="impressum"
-        class="text-2xl underline decoration-solid underline-offset-4"
-      >
-        <p>Impressum</p>
+    </div>
+    <div class="mt-24 flex items-center justify-center">
+      <NuxtLink to="imprint" class="p-3 text-2xl" id="imprint">
+        <p>Imprint</p>
       </NuxtLink>
+      <a href="https://github.com/A11y-Game/A11y-Game">
+        <Icon
+          name="mdi:github"
+          class="text-3xl text-text-light dark:text-text-dark"
+        />
+      </a>
     </div>
   </div>
 </template>
