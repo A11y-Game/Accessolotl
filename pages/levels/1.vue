@@ -64,7 +64,7 @@ export default {
 <template>
   <div class="flex h-full flex-1 flex-row items-stretch gap-8 px-16 pb-12">
     <div
-      class="flex flex-[3] flex-col items-stretch gap-8 overflow-y-auto text-base pb-3"
+      class="flex flex-[3] flex-col items-stretch gap-8 overflow-y-auto pb-3 text-base"
     >
       <div
         class="flex-none rounded-2xl border-2 border-blue-4 bg-blue-3-light p-4 text-center font-heading text-xl font-semibold shadow-large-drop-shadow dark:bg-blue-3-dark"
@@ -76,11 +76,10 @@ export default {
       >
         <div class="">
           <Icon name="mdi:eye-outline" size="2rem" />
-          <img
-            src="~/assets/img/axolotl-1.jpg"
-            alt="axolotl in an aquarium"
-            class="flex-1 self-stretch rounded-2xl object-cover shadow-small-drop-shadow"
-          />
+          <div
+            class="flex-1 self-stretch overflow-hidden rounded-2xl bg-cover bg-center shadow-small-drop-shadow"
+            style="background-image: url(/_nuxt/assets/img/axolotl-1.jpg)"
+          ></div>
         </div>
 
         <div>
