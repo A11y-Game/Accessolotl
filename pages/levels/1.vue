@@ -62,30 +62,31 @@ export default {
 };
 </script>
 <template>
-  <div class="flex h-full flex-1 flex-row items-stretch gap-8 px-16 pb-12">
+  <div class="flex h-full flex-1 flex-row items-stretch gap-8 px-16 pb-16">
     <div
-      class="flex flex-[3] flex-col items-stretch gap-8 overflow-y-auto pb-3 text-base"
+      class="flex flex-[3] flex-col items-stretch gap-8 overflow-y-auto text-lg"
     >
       <div
-        class="flex-none rounded-2xl border-2 border-blue-4 bg-blue-3-light p-4 text-center font-heading text-xl font-semibold shadow-large-drop-shadow dark:bg-blue-3-dark"
+        class="flex-none rounded-2xl border-2 border-blue-4 bg-blue-3-light p-4 text-center font-heading text-2xl font-semibold shadow-content-box-drop-shadow dark:bg-blue-3-dark"
       >
         <p>Oh no! The 'alt'-tag is missing!</p>
       </div>
       <div
-        class="flex flex-1 flex-row gap-8 rounded-2xl border-2 border-blue-4 bg-blue-3-light p-8 pt-6 shadow-large-drop-shadow *:flex *:flex-1 *:flex-col *:items-center *:gap-4 dark:bg-blue-3-dark"
+        class="flex flex-1 flex-row gap-8 rounded-2xl border-2 border-blue-4 bg-blue-3-light p-8 pt-6 shadow-content-box-drop-shadow *:flex *:flex-1 *:flex-col *:items-center *:gap-4 dark:bg-blue-3-dark"
       >
         <div class="">
           <Icon name="mdi:eye-outline" size="2rem" />
-          <div
-            class="flex-1 self-stretch overflow-hidden rounded-2xl bg-cover bg-center shadow-small-drop-shadow"
-            style="background-image: url(/_nuxt/assets/img/axolotl-1.jpg)"
-          ></div>
+          <img
+            src="~/assets/img/axolotl-1.jpg"
+            alt="axolotl in an aquarium"
+            class="flex-1 self-stretch rounded-2xl object-cover"
+          />
         </div>
 
         <div>
           <Icon name="material-symbols:hearing" size="2rem" />
           <div
-            class="grid flex-1 place-items-center self-stretch text-pretty rounded-2xl bg-blue-5-light p-4 text-center shadow-small-drop-shadow dark:bg-blue-5-dark"
+            class="grid flex-1 place-items-center self-stretch text-pretty rounded-2xl bg-blue-5-light p-4 text-center dark:bg-blue-5-dark"
           >
             <p>{{ screenReader }}</p>
           </div>
@@ -95,7 +96,7 @@ export default {
           <Icon name="ic:twotone-wifi-off" size="2rem" />
 
           <div
-            class="grid flex-1 place-items-center self-stretch rounded-2xl bg-blue-5-light p-4 shadow-small-drop-shadow dark:bg-blue-5-dark"
+            class="grid flex-1 place-items-center self-stretch rounded-2xl bg-blue-5-light p-4 dark:bg-blue-5-dark"
           >
             <p>
               <Icon name="material-symbols:broken-image-rounded" />
@@ -106,7 +107,7 @@ export default {
       </div>
 
       <div
-        class="flex flex-none gap-2 rounded-2xl bg-blue-3-light p-3 shadow-large-drop-shadow dark:bg-blue-5-dark"
+        class="flex flex-none gap-2 rounded-2xl bg-blue-3-light p-3 dark:bg-blue-5-dark"
       >
         <div
           class="flex-1 rounded-2xl bg-blue-5-light p-2 font-mono dark:bg-blue-4"
@@ -135,13 +136,13 @@ export default {
         <div class="flex flex-col justify-center gap-3">
           <button
             @click="toggleHint"
-            class="size-12 rounded-lg bg-axolotl-light shadow-small-drop-shadow hover:bg-axolotl-dark dark:bg-axolotl-dark hover:dark:bg-axolotl-light"
+            class="size-12 rounded-lg bg-axolotl-light shadow-content-box-drop-shadow hover:bg-axolotl-dark dark:bg-axolotl-dark hover:dark:bg-axolotl-light"
           >
             <Icon name="lucide:lightbulb" class="size-8" />
           </button>
           <button
             @click="reset"
-            class="size-12 rounded-lg bg-blue-5-light shadow-small-drop-shadow hover:bg-blue-5-dark dark:bg-blue-4 hover:dark:bg-blue-2-dark"
+            class="size-12 rounded-lg bg-blue-5-light shadow-content-box-drop-shadow hover:bg-blue-5-dark dark:bg-blue-4 hover:dark:bg-blue-2-dark"
           >
             <Icon name="lucide:rotate-ccw" class="size-7" />
           </button>
@@ -149,9 +150,9 @@ export default {
       </div>
     </div>
 
-    <div class="flex flex-1 flex-col items-stretch gap-8 pb-3">
+    <div class="flex flex-1 flex-col items-stretch gap-8">
       <div
-        class="prose prose-base flex-1 overflow-y-auto rounded-2xl border-2 border-blue-4 bg-blue-3-light p-8 pt-1 shadow-large-drop-shadow dark:prose-invert dark:bg-blue-3-dark"
+        class="prose prose-lg flex-1 overflow-y-auto rounded-2xl border-2 border-blue-4 bg-blue-3-light p-8 shadow-content-box-drop-shadow dark:prose-invert dark:bg-blue-3-dark"
       >
         <VueMarkdown :source="md" />
       </div>
