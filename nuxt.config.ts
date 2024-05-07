@@ -4,7 +4,7 @@ export default defineNuxtConfig({
   modules: ["@nuxtjs/tailwindcss", "nuxt-icon", "@nuxtjs/google-fonts"],
   app: {
     head: {
-      link: [{ rel: "icon", type: "image/svg", href: "/accessolotl.svg" }],
+      link: [{ rel: "icon", type: "image/svg", href: "/accessolotl-logo.svg" }],
       // language
       htmlAttrs: {
         lang: "en",
