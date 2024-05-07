@@ -135,21 +135,21 @@
       <div class="flex place-content-evenly text-2xl">
         <div>
           <div
-            class="mb-4 h-[250px] w-[250px] rounded-full bg-[url('assets/img/axolotl-portrait-marco.jpg')] bg-cover bg-center hover:bg-[url('assets/img/marco.jpg')]"
+            class="mb-4 h-[250px] w-[250px] rounded-full bg-[url('~/assets/img/teammitglied_marco.jpg')] bg-cover"
           ></div>
           <p class="font-semibold">Marco Janderka</p>
           <p>Product Owner</p>
         </div>
         <div>
           <div
-            class="mb-4 h-[250px] w-[250px] rounded-full bg-[url('assets/img/axolotl-portrait-lisa.jpg')] bg-cover bg-center hover:bg-[url('assets/img/lisa.jpg')]"
+            class="mb-4 h-[250px] w-[250px] rounded-full bg-[url('~/assets/img/teammitglied_lisa.jpg')] bg-cover"
           ></div>
           <p class="font-semibold">Lisa-Marie Hörmann</p>
           <p>Scrum Master</p>
         </div>
         <div>
           <div
-            class="mb-4 h-[250px] w-[250px] rounded-full bg-[url('assets/img/axolotl-portrait-felix.jpg')] bg-cover bg-center hover:bg-[url('assets/img/felix.jpg')]"
+            class="mb-4 h-[250px] w-[250px] rounded-full bg-[url('~/assets/img/teammitglied_felix.jpg')] bg-cover"
           ></div>
           <p class="font-semibold">Felix Wollmann</p>
           <p>Projektmitglied</p>
