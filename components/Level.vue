@@ -50,7 +50,7 @@ export default defineComponent({
 
     <div class="flex flex-1 flex-col items-stretch gap-8 pb-3">
       <div
-        class="prose flex-1 overflow-y-auto rounded-2xl border-2 border-blue-4 bg-blue-3-light p-8 pt-1 shadow-large-drop-shadow dark:prose-invert first:*:*:mt-0 dark:bg-blue-3-dark"
+        class="prose flex-1 overflow-y-auto rounded-2xl border-2 border-blue-4 bg-blue-3-light p-8 shadow-large-drop-shadow dark:prose-invert first:*:*:mt-0 dark:bg-blue-3-dark"
       >
         <VueMarkdown :source="markdown" />
       </div>

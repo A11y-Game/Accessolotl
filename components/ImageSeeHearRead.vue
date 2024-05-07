@@ -26,7 +26,9 @@ export default defineComponent({
   >
     <div class="">
       <Icon name="mdi:eye-outline" size="2rem" />
-      <div class="flex-1 flex self-stretch *:flex-1 *:self-stretch *:rounded-2xl *:object-cover">
+      <div
+        class="flex flex-1 self-stretch *:flex-1 *:self-stretch *:rounded-2xl *:object-cover"
+      >
         <slot>
           <img src="~/assets/img/axolotl-1.jpg" alt="axolotl in an aquarium" />
         </slot>
@@ -36,7 +38,7 @@ export default defineComponent({
     <div>
       <Icon name="material-symbols:hearing" size="2rem" />
       <div
-        class="grid flex-1 place-items-center self-stretch text-pretty rounded-2xl bg-blue-5-light p-4 text-center dark:bg-blue-5-dark"
+        class="grid flex-1 place-items-center self-stretch text-pretty rounded-2xl bg-blue-5-light p-4 text-center shadow-small-drop-shadow dark:bg-blue-5-dark"
       >
         <p>{{ screenReader }}</p>
       </div>
@@ -46,7 +48,7 @@ export default defineComponent({
       <Icon name="ic:twotone-wifi-off" size="2rem" />
 
       <div
-        class="grid flex-1 place-items-center self-stretch rounded-2xl bg-blue-5-light p-4 dark:bg-blue-5-dark"
+        class="grid flex-1 place-items-center self-stretch rounded-2xl bg-blue-5-light p-4 shadow-small-drop-shadow dark:bg-blue-5-dark"
       >
         <p>
           <Icon name="material-symbols:broken-image-rounded" />
