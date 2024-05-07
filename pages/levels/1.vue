@@ -40,7 +40,7 @@ It turns out that not everybody can simply look at an image on a webpage to unde
 });
 </script>
 <template>
-  <Level :markdown :task :isCorrect :levelNumber="2">
+  <Level :markdown :task :isCorrect :levelNumber="1">
     <div class="flex h-full w-full flex-col gap-8">
       <ImageSeeHearRead filename="axolotl.jpg" :altValue>
         <div
