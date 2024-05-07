@@ -77,8 +77,7 @@ export default {
         <div class="">
           <Icon name="mdi:eye-outline" size="2rem" />
           <div
-            class="flex-1 self-stretch overflow-hidden rounded-2xl bg-cover bg-center shadow-small-drop-shadow"
-            style="background-image: url(/_nuxt/assets/img/axolotl-1.jpg)"
+            class="axolotlImage flex-1 self-stretch overflow-hidden rounded-2xl bg-cover bg-center shadow-small-drop-shadow"
           ></div>
         </div>
 
@@ -170,3 +169,9 @@ export default {
     </div>
   </div>
 </template>
+
+<style scoped>
+.axolotlImage {
+  background-image: url("~/assets/img/axolotl-1.jpg");
+}
+</style>
