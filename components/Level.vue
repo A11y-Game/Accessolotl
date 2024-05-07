@@ -34,12 +34,12 @@ export default defineComponent({
 });
 </script>
 <template>
-  <div class="flex h-full flex-1 flex-row items-stretch gap-8 px-16 pb-16">
+  <div class="flex h-full flex-1 flex-row items-stretch gap-8 px-16 pb-12">
     <div
-      class="flex flex-[3] flex-col items-stretch gap-8 overflow-y-auto text-lg"
+      class="flex flex-[3] flex-col items-stretch gap-8 overflow-y-auto pb-3 text-base"
     >
       <div
-        class="flex-none rounded-2xl border-2 border-blue-4 bg-blue-3-light p-4 text-center font-heading text-2xl font-semibold shadow-content-box-drop-shadow dark:bg-blue-3-dark"
+        class="flex-none rounded-2xl border-2 border-blue-4 bg-blue-3-light p-4 text-center font-heading text-xl font-semibold shadow-large-drop-shadow dark:bg-blue-3-dark"
       >
         <p>{{ task }}</p>
       </div>
@@ -48,9 +48,9 @@ export default defineComponent({
       </div>
     </div>
 
-    <div class="flex flex-1 flex-col items-stretch gap-8">
+    <div class="flex flex-1 flex-col items-stretch gap-8 pb-3">
       <div
-        class="prose prose-lg flex-1 overflow-y-auto rounded-2xl border-2 border-blue-4 bg-blue-3-light p-8 shadow-content-box-drop-shadow dark:prose-invert first:*:*:mt-0 dark:bg-blue-3-dark"
+        class="prose flex-1 overflow-y-auto rounded-2xl border-2 border-blue-4 bg-blue-3-light p-8 pt-1 shadow-large-drop-shadow dark:prose-invert first:*:*:mt-0 dark:bg-blue-3-dark"
       >
         <VueMarkdown :source="markdown" />
       </div>

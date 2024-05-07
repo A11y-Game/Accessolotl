@@ -59,7 +59,7 @@ export default defineComponent({
 </script>
 <template>
   <div
-    class="flex flex-none gap-2 rounded-2xl bg-blue-3-light p-3 dark:bg-blue-5-dark"
+    class="flex flex-none gap-2 rounded-2xl bg-blue-3-light p-3 shadow-large-drop-shadow dark:bg-blue-5-dark"
   >
     <div
       class="flex-1 rounded-2xl bg-blue-5-light p-2 font-mono dark:bg-blue-4"
@@ -88,13 +88,13 @@ export default defineComponent({
     <div class="flex flex-col justify-center gap-3">
       <button
         @click="toggleHint"
-        class="size-12 rounded-lg bg-axolotl-light shadow-content-box-drop-shadow hover:bg-axolotl-dark dark:bg-axolotl-dark hover:dark:bg-axolotl-light"
+        class="size-12 rounded-lg bg-axolotl-light shadow-small-drop-shadow hover:bg-axolotl-dark dark:bg-axolotl-dark hover:dark:bg-axolotl-light"
       >
         <Icon name="lucide:lightbulb" class="size-8" />
       </button>
       <button
         @click="reset"
-        class="size-12 rounded-lg bg-blue-5-light shadow-content-box-drop-shadow hover:bg-blue-5-dark dark:bg-blue-4 hover:dark:bg-blue-2-dark"
+        class="size-12 rounded-lg bg-blue-5-light shadow-small-drop-shadow hover:bg-blue-5-dark dark:bg-blue-4 hover:dark:bg-blue-2-dark"
       >
         <Icon name="lucide:rotate-ccw" class="size-7" />
       </button>
