@@ -5,7 +5,6 @@ export default defineComponent({
   data() {
     return {
       showHint: false,
-      currentCode: this.defaultCode
     };
   },
   methods: {
@@ -13,7 +12,7 @@ export default defineComponent({
       this.showHint = !this.showHint;
     },
     reset() {
-      this.currentCode = this.defaultCode;
+      this.code = this.defaultCode;
       this.showHint = false;
     },
   },
@@ -23,7 +22,6 @@ export default defineComponent({
         return this.currentCode;
       },
       set(value: string) {
-        this.currentCode = value;
         this.$emit("update:currentCode", value);
       },
     },
@@ -52,7 +50,7 @@ export default defineComponent({
     currentCode: {
       type: String,
       required: true,
-    },
+    }
   },
   emits: ['update:currentCode'],
 });
