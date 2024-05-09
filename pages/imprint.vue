@@ -2,7 +2,7 @@
   <div
     class="flex h-screen flex-col items-center overflow-scroll bg-blue-1-light px-24 py-16 text-xl leading-relaxed dark:bg-blue-1-dark"
   >
-    <p class="text-3xl font-semibold">Impressum</p>
+    <h1 class="text-3xl font-semibold">Impressum</h1>
     <div class="my-8">
       <p>
         <b
@@ -19,19 +19,21 @@
       </p>
       <p>
         <b>Anwendbare Rechtsvorschrift: </b>
-        <a
-          href="https://www.ris.bka.gv.at/"
+        <NuxtLink
+          to="https://www.ris.bka.gv.at/"
+          target="_blank"
           class="underline decoration-solid underline-offset-4"
-          >www.ris.bka.gv.at </a
+          >www.ris.bka.gv.at </NuxtLink
         ><br />
       </p>
       <p>
         <b>Online Streitbeilegung:</b> Verbraucher haben die Möglichkeit,
         Beschwerden an die Online-Streitbeilegungsplattform der EU zu richten:
-        <a
-          href="http://ec.europa.eu/odr/"
+        <NuxtLink
+          to="http://ec.europa.eu/odr/"
+          target="_blank"
           class="underline decoration-solid underline-offset-4"
-          >http://ec.europa.eu/odr</a
+          >http://ec.europa.eu/odr</NuxtLink
         >. Sie können allfällige Beschwerde auch an die oben angegebene
         E-Mail-Adresse richten.
       </p>
@@ -58,44 +60,50 @@
       </p>
       <p>
         Quelle:
-        <a
-          href="https://www.ortner-rechtsanwalt.at/strafrecht-festnahme-verhaftung/"
+        <NuxtLink
+          to="https://www.ortner-rechtsanwalt.at/strafrecht-festnahme-verhaftung/"
+          target="_blank"
           class="underline decoration-solid underline-offset-4"
-          >Rechtsanwalt Wien Festnahme</a
+          >Rechtsanwalt Wien Festnahme</NuxtLink
         >
       </p>
       <p>
         Schriftarten von
-        <a
-          href="https://fonts.google.com/"
+        <NuxtLink
+          to="https://fonts.google.com/"
+          target="_blank"
           class="underline decoration-solid underline-offset-4"
-          >Google Fonts</a
+          >Google Fonts</NuxtLink
         >.<br />
         Icons von
-        <a
-          href="https://iconify.design/"
+        <NuxtLink
+          to="https://iconify.design/"
+          target="_blank"
           class="underline decoration-solid underline-offset-4"
-          >iconify</a
+          >iconify</NuxtLink
         >.<br />
         Bilder von
-        <a
-          href="https://unsplash.com/"
+        <NuxtLink
+          to="https://unsplash.com/"
+          target="_blank"
           class="underline decoration-solid underline-offset-4"
-          >unsplash</a
+          >unsplash</NuxtLink
         >,
-        <a
-          href="https://pixabay.com/"
+        <NuxtLink
+          to="https://pixabay.com/"
+          target="_blank"
           class="underline decoration-solid underline-offset-4"
-          >pixabay</a
+          >pixabay</NuxtLink
         >.
       </p>
     </div>
-    <a
-      href="/#about"
+    <NuxtLink
+      to="/#about"
+      :external="true"
       class="flex h-16 w-56 items-center justify-center rounded-2xl bg-blue-5-light p-1 font-heading text-2xl font-semibold shadow-content-box-drop-shadow dark:bg-blue-5-dark"
     >
-      Back
-    </a>
+      Back</NuxtLink
+    >
   </div>
 </template>
 

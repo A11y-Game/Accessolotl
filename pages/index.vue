@@ -4,14 +4,14 @@
   >
     <div class="flex place-content-between items-center">
       <NuxtLink to="/">
-        <picture class="h-11 dark:hidden">
-          <source srcset="~\assets\img\icons\light\accessolotllogo-light.svg" />
-          <img src="assets\img\icons\light\accessolotllogo-light.png" />
-        </picture>
-        <picture class="hidden h-11 dark:block">
-          <source srcset="assets\img\icons\dark\accessolotllogo-dark.svg" />
-          <img src="assets\img\icons\dark\accessolotllogo-dark.png" />
-        </picture>
+        <img
+          src="~\assets\img\icons\light\accessolotllogo-light.svg"
+          class="h-11 dark:hidden"
+        />
+        <img
+          src="~\assets\img\icons\dark\accessolotllogo-dark.svg"
+          class="hidden h-11 dark:block"
+        />
       </NuxtLink>
       <button type="button" class="ml-auto mr-8" @click="toggleTheme()">
         <div class="dark:hidden">
@@ -37,63 +37,45 @@
     <div class="mt-32 flex-1 justify-center text-center text-6xl">
       <p class="font-heading">Welcome to</p>
       <div class="mb-8 mt-12 flex justify-center">
-        <picture class="h-36 dark:hidden">
-          <source
-            srcset="~\assets\img\icons\light\homepage-accessolotllogo-light.svg"
-          />
-          <img
-            src="assets\img\icons\light\homepage-accessolotllogo-light.png"
-          />
-        </picture>
-        <picture class="hidden h-36 dark:block">
-          <source
-            srcset="assets\img\icons\dark\homepage-accessolotllogo-dark.svg"
-          />
-          <img src="assets\img\icons\dark\homepage-accessolotllogo-dark.png" />
-        </picture>
+        <img
+          src="~\assets\img\icons\light\accessolotllogo-light.svg"
+          class="h-36 dark:hidden"
+        />
+        <img
+          src="~\assets\img\icons\dark\accessolotllogo-dark.svg"
+          class="hidden h-36 dark:block"
+        />
       </div>
       <p class="mb-12 text-3xl font-semibold">
         your place to learn web-accessibility
       </p>
       <div class="flex justify-center">
-        <picture class="h-36 dark:hidden">
-          <source
-            srcset="
-              assets\img\icons\light\homepage-arrow-accessibility-light.svg
+        <img
+          src="
+              ~\assets\img\icons\light\homepage-arrow-accessibility-light.svg
             "
-          />
-          <img
-            src="assets\img\icons\light\homepage-arrow-accessibility-light.png"
-          />
-        </picture>
-        <picture class="hidden h-36 dark:block">
-          <source
-            srcset="assets\img\icons\dark\homepage-arrow-accessibility-dark.svg"
-          />
-          <img
-            src="assets\img\icons\dark\homepage-arrow-accessibility-dark.png"
-          />
-        </picture>
+          class="h-36 dark:hidden"
+        />
+        <img
+          src="~\assets\img\icons\dark\homepage-arrow-accessibility-dark.svg"
+          class="hidden h-36 dark:block"
+        />
         <NuxtLink
           to="levels/1"
           class="mx-32 mt-6 flex h-16 w-96 items-center justify-center rounded-2xl bg-button-active p-1 font-heading text-3xl font-semibold shadow-content-box-drop-shadow"
         >
           Play
         </NuxtLink>
-        <picture class="h-36 dark:hidden">
-          <source
-            srcset="assets\img\icons\light\homepage-arrow-axolotl-light.svg"
-          />
-          <img src="assets\img\icons\light\homepage-arrow-axolotl-light.png" />
-        </picture>
-        <picture class="hidden h-36 dark:block">
-          <source
-            srcset="assets\img\icons\dark\homepage-arrow-axolotl-dark.svg"
-          />
-          <img src="assets\img\icons\dark\homepage-arrow-axolotl-dark.png" />
-        </picture>
+        <img
+          src="~\assets\img\icons\light\homepage-arrow-axolotl-light.svg"
+          class="h-36 dark:hidden"
+        />
+        <img
+          src="~\assets\img\icons\dark\homepage-arrow-axolotl-dark.svg"
+          class="hidden h-36 dark:block"
+        />
       </div>
-      <div class="row mb-48 flex place-content-around font-heading">
+      <div class="row mb-48 mt-4 flex place-content-around font-heading">
         <p class="w-96">accessibility</p>
         <p class="w-96 text-axolotl-dark dark:text-axolotl-light">axolotl</p>
       </div>
@@ -109,23 +91,21 @@
           accessibility features.
         </p>
         <div class="my-8 flex justify-center">
-          <picture class="">
-            <source srcset="assets\img\icons\accessolotl-logo.svg" />
-            <img src="assets\img\icons\accessolotl-logo.png" />
-          </picture>
+          <img src="~\assets\img\icons\accessolotl-logo.svg" />
         </div>
         <p class="text-4xl font-bold">What is WCAG?</p>
         <p class="text-justify indent-6">
           We follow the Web Content Accessibility Guidelines (WCAG) 2.1 to make
           content for our website more accessible to a wider range of people
-          with disabilities. Additionally, we strive to meet Level AA
-          conformance for our own website.
+          with disabilities. Additionally, we strive to meet Level A conformance
+          for our own website.
         </p>
         <p>
-          <a
-            href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1"
+          <NuxtLink
+            to="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1"
+            target="_blank"
             class="underline decoration-solid underline-offset-4"
-            >Get more information here!</a
+            >Get more information here!</NuxtLink
           >
         </p>
       </div>
@@ -160,12 +140,12 @@
       <NuxtLink to="imprint" class="p-3 text-2xl" id="imprint">
         <p>Imprint</p>
       </NuxtLink>
-      <a href="https://github.com/A11y-Game/A11y-Game">
+      <NuxtLink to="https://github.com/A11y-Game/A11y-Game" target="_blank">
         <Icon
           name="mdi:github"
           class="text-3xl text-text-light dark:text-text-dark"
         />
-      </a>
+      </NuxtLink>
     </div>
   </div>
 </template>
