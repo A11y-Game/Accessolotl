@@ -1,18 +1,38 @@
-# A11Y-Game ♿
-## Installation
-- passende [Node-Version](https://nodejs.org/en/about/previous-releases) verwenden (gerade Versionen sind LTS, derzeit v18 oder v20)
-  - v20.6.0 funktioniert nicht mit nuxt offenbar
-- `npm install`
-- `npm run dev`
-- Formatieren im Editor (VSCode: `Shift + Alt + F`) oder alles mit `npm run prettier` formatieren
 
-# Weitere Informationen
+<div align="center">
+  <a href="https://github.com/A11y-Game/A11y-Game">
+    <img src="public/accessolotl-logo.svg" alt="Accessolotl logo" width="90">
+  </a>
+<h1>accessolotl</h1>
+<h3>your place to learn web-accessibility</h3>
+</div>
+<br>
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+## Table Of Contents
+
+* [About the Project](#about-the-project)
+* [Authors](#authors)
+* [Setup](#setup)
+
+## About the Project
+
+Our Project aims to teach society how important web-accessibility is. We want to show what an accessible website means to disabled people and how it can improve their experience. Are you ready to learn about the importance of implementing accessibility features?
+#### Visit us at [accessolotl.netlify.app](https://accessolotl.netlify.app/)!
+
+## Authors
+
+Created by 3 students of [HTL Rennweg](https://www.htl.rennweg.at/) located in Vienna, Austria.
+* Marco Janderka ([@Pycxtv](https://github.com/Pycxtv))
+* Lisa-Marie Hörmann ([@dasechtelima](https://github.com/dasechtelima))
+* Felix Wollmann ([@felixwollmann](https://github.com/felixwollmann))
 
 ## Setup
 
-Make sure to install the dependencies:
+- [Node.js](https://nodejs.org/en/about/previous-releases) (version >= 18)
+
+Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+
+### Make sure to install the dependencies:
 
 ```bash
 # npm
@@ -28,7 +48,7 @@ yarn install
 bun install
 ```
 
-## Development Server
+### Development Server
 
 Start the development server on `http://localhost:3000`:
 
@@ -46,7 +66,7 @@ yarn dev
 bun run dev
 ```
 
-## Production
+### Production
 
 Build the application for production:
 

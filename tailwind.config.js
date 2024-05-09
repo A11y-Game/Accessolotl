@@ -32,7 +32,8 @@ export default {
         "input-correct-highlight": "rgba(82, 196, 64, 0.15)",
       },
       boxShadow: {
-        "content-box-drop-shadow": "0px 8px 8px rgba(0, 0, 0, 0.25)",
+        "large-drop-shadow": "0px 8px 8px rgba(0, 0, 0, 0.25)",
+        "small-drop-shadow": "0px 6px 6px rgba(0, 0, 0, 0.25)",
       },
       fontFamily: {
         sans: ["Montserrat", "sans-serif"],
