@@ -132,7 +132,7 @@
             class="mb-4 h-[250px] w-[250px] rounded-full bg-[url('~/assets/img/teammitglied_felix.jpg')] bg-cover"
           ></div>
           <p class="font-semibold">Felix Wollmann</p>
-          <p>Projektmitglied</p>
+          <p>Team Member</p>
         </div>
       </div>
     </div>

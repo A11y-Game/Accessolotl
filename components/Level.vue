@@ -34,7 +34,7 @@ export default defineComponent({
 });
 </script>
 <template>
-  <div class="flex h-full flex-1 flex-row items-stretch gap-8 px-16 pb-12">
+  <div class="flex h-full flex-1 flex-row items-stretch gap-8 px-16 pb-16">
     <div
       class="flex flex-[3] flex-col items-stretch gap-8 overflow-y-auto pb-3 text-base"
     >
