@@ -1,7 +1,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 
-const code = `    <div>Axo<span style="color: #c0216b">lotl</span></div>`;
+const code = `    `;
 
 export default defineComponent({
   data: () => {
@@ -30,11 +30,7 @@ Also keep in mind that some of these users often rely on enlarging text for bett
       );
     },
     isCorrect(): boolean {
-      return (
-        /alt=["][^"]*axolotl[^"]*["]/i.test(this.code) ||
-        /alt=['][^']*axolotl[^']*[']/i.test(this.code) ||
-        /alt=\w*axolotl\w*/i.test(this.code)
-      );
+      return this.code.includes('<span style="color: #c0216b">lotl</span>');
     },
   },
 });
@@ -42,15 +38,37 @@ Also keep in mind that some of these users often rely on enlarging text for bett
 <template>
   <Level :markdown :task :isCorrect :levelNumber="2">
     <div class="flex h-full w-full flex-col gap-8">
-      <ImageSeeHearRead filename="lettering.png" :altValue>
-        <div
-          class="axolotlLettering flex-1 self-stretch overflow-hidden rounded-2xl bg-contain bg-no-repeat bg-center shadow-small-drop-shadow p-4"
-          alt="axolotl in an aquarium"
-        ></div>
-      </ImageSeeHearRead>
+      <div
+        class="flex flex-1 flex-row gap-8 rounded-2xl border-2 border-blue-4 bg-blue-3-light p-8 pt-6 shadow-small-drop-shadow *:flex *:flex-1 *:flex-col *:items-center *:gap-4 dark:bg-blue-3-dark"
+      >
+        <div>
+          <div
+            class="grid flex-1 place-items-center self-stretch text-pretty rounded-2xl bg-blue-5-light object-cover p-4 text-center shadow-small-drop-shadow dark:bg-blue-5-dark"
+          >
+            <img
+              src="~/assets/img/axolotl-lettering-2.svg"
+              alt="axolotl in an aquarium"
+            />
+          </div>
+        </div>
+        <div>
+          <div
+            class="grid flex-1 place-items-center self-stretch text-pretty rounded-2xl bg-blue-5-light object-contain p-4 text-center shadow-small-drop-shadow dark:bg-blue-5-dark"
+          >
+            <p>Replace the image with simple text and use the color #c0216b to style it to look like the image</p>
+          </div>
+        </div>
+        <div>
+          <div
+            class="grid flex-1 place-items-center self-stretch rounded-2xl bg-blue-5-light p-4 shadow-small-drop-shadow dark:bg-blue-5-dark"
+          >
+            <div v-html="code" class="font-heading text-7xl"></div>
+          </div>
+        </div>
+      </div>
       <SingleLineCodeEditor
         before='<body>
-    <img src="axolotl-lettering.png" alt="axolotl lettering">'
+    img src="axolotl-lettering.png" alt="axolotl lettering">'
         :defaultCode="defaultCode"
         after="</body>"
         hint="    <--! Use a <span>-Tag to style the last part of Axolotl with the color #c0216b -->"
