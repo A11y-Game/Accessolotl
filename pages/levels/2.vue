@@ -1,7 +1,8 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 
-const code = `    <p><span style="color: #c0216b"></span></p>`;
+const codeLight = `    <p><span style="color: #c0216b"></span></p>`;
+const codeDark = `    <p><span style='color: #fec2de'></span></p>`;
 
 export default defineComponent({
   data: () => {
@@ -15,8 +16,9 @@ Also keep in mind that some of these users often rely on enlarging text for bett
 ## Links
 - [Images in Text in Images Tutorial](https://www.w3.org/WAI/tutorials/images/textual/)`,
 
-      code,
-      defaultCode: code,
+      codeLight,
+      codeDark,
+      defaultCode: codeLight,
       task: "Oh no! That's not how you use pictures!",
     };
   },
@@ -24,10 +26,16 @@ Also keep in mind that some of these users often rely on enlarging text for bett
     isCorrect(): boolean {
       return (
         /<p>\s*Axo<span style="color: #c0216b">lotl\s*<\/span>\s*<\/p>/i.test(
-          this.code,
+          this.codeLight,
         ) ||
         /<p>\s*Axo<span style='color: #c0216b'>lotl\s*<\/span>\s*<\/p>/i.test(
-          this.code,
+          this.codeLight,
+        ) ||
+        /<p>\s*Axo<span style='color: #fec2de'>lotl\s*<\/span>\s*<\/p>/i.test(
+          this.codeDark,
+        ) ||
+        /<p>\s*Axo<span style='color: #fec2de'>lotl\s*<\/span>\s*<\/p>/i.test(
+          this.codeDark,
         )
       );
     },
@@ -46,36 +54,53 @@ Also keep in mind that some of these users often rely on enlarging text for bett
             class="grid flex-1 place-items-center self-stretch text-pretty rounded-2xl bg-blue-5-light p-4 text-center shadow-small-drop-shadow dark:bg-blue-5-dark"
           >
             <img
-              src="~/assets/img/axolotl-lettering-2.svg"
+              src="~/assets/img/axolotl-lettering-2-light.svg"
               alt="axolotl in an aquarium"
-      class="w-full object-cover p-20"
+              class="w-full object-cover p-20 dark:hidden"
+            />
+            <img
+              src="~/assets/img/axolotl-lettering-2-dark.svg"
+              alt="axolotl in an aquarium"
+              class="hidden w-full object-cover p-20 dark:block"
             />
           </div>
         </div>
         <div>
           <Icon name="mdi:code" size="2rem" />
           <div
-            class="grid flex-1 place-items-center self-stretch rounded-2xl bg-blue-5-light p-4 shadow-small-drop-shadow dark:bg-blue-5-dark"
+            class="grid flex-1 place-items-center self-stretch rounded-2xl bg-blue-5-light p-4 shadow-small-drop-shadow dark:hidden dark:bg-blue-5-dark"
           >
-            <div v-html="code" class="font-heading text-8xl"></div>
+            <div v-html="codeLight" class="font-heading text-8xl"></div>
+          </div>
+          <div
+            class="hidden flex-1 place-items-center self-stretch rounded-2xl bg-blue-5-light p-4 shadow-small-drop-shadow dark:grid dark:bg-blue-5-dark"
+          >
+            <div v-html="codeDark" class="font-heading text-8xl"></div>
           </div>
         </div>
       </div>
-      <SingleLineCodeEditor
-        before='<body>
+      <div class="dark:hidden">
+        <SingleLineCodeEditor
+          before='<body>
     img src="axolotl-lettering.png" alt="axolotl lettering">'
-        :defaultCode="defaultCode"
-        after="</body>"
-        hint="    <--! Write 'Axo' before the <span>-Tag and 'lotl' inside to color it -->"
-        :isCorrect
-        v-model:currentCode="code"
-      ></SingleLineCodeEditor>
+          :defaultCode="defaultCode"
+          after="</body>"
+          hint="    <--! Write 'Axo' before the <span>-Tag and 'lotl' inside to color it -->"
+          :isCorrect
+          v-model:currentCode="codeLight"
+        ></SingleLineCodeEditor>
+      </div>
+      <div class="hidden dark:block">
+        <SingleLineCodeEditor
+          before='<body>
+    img src="axolotl-lettering.png" alt="axolotl lettering">'
+          :defaultCode="defaultCode"
+          after="</body>"
+          hint="    <--! Write 'Axo' before the <span>-Tag and 'lotl' inside to color it -->"
+          :isCorrect
+          v-model:currentCode="codeDark"
+        ></SingleLineCodeEditor>
+      </div>
     </div>
   </Level>
 </template>
-
-<style scoped>
-.axolotlLettering {
-  background-image: url("~/assets/img/axolotl-lettering-2.svg");
-}
-</style>
