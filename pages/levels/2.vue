@@ -18,7 +18,8 @@ Also keep in mind that some of these users often rely on enlarging text for bett
 
       codeLight,
       codeDark,
-      defaultCode: codeLight,
+      defaultCodeLight: codeLight,
+      defaultCodeDark: codeDark,
       task: "Oh no! That's not how you use pictures!",
     };
   },
@@ -83,7 +84,7 @@ Also keep in mind that some of these users often rely on enlarging text for bett
         <SingleLineCodeEditor
           before='<body>
     img src="axolotl-lettering.png" alt="axolotl lettering">'
-          :defaultCode="defaultCode"
+          :defaultCode="defaultCodeLight"
           after="</body>"
           hint="    <--! Write 'Axo' before the <span>-Tag and 'lotl' inside to color it -->"
           :isCorrect
@@ -94,7 +95,7 @@ Also keep in mind that some of these users often rely on enlarging text for bett
         <SingleLineCodeEditor
           before='<body>
     img src="axolotl-lettering.png" alt="axolotl lettering">'
-          :defaultCode="defaultCode"
+          :defaultCode="defaultCodeDark"
           after="</body>"
           hint="    <--! Write 'Axo' before the <span>-Tag and 'lotl' inside to color it -->"
           :isCorrect
