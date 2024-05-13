@@ -98,8 +98,7 @@
       </p>
     </div>
     <NuxtLink
-      to="/#about"
-      :external="true"
+      to="/"
       class="flex h-16 w-56 items-center justify-center rounded-2xl bg-blue-5-light p-1 font-heading text-2xl font-semibold shadow-content-box-drop-shadow dark:bg-blue-5-dark"
     >
       Back</NuxtLink
