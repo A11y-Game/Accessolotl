@@ -1,7 +1,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 
-const code = `    `;
+const code = `    <p><span style="color: #c0216b"></span></p>`;
 
 export default defineComponent({
   data: () => {
@@ -21,16 +21,15 @@ Also keep in mind that some of these users often rely on enlarging text for bett
     };
   },
   computed: {
-    /** returns the alt tag value */
-    altValue(): string {
-      return (
-        this.code.match(/alt="([^">]*)"?/)?.[1] ||
-        this.code.match(/alt='([^'>]*)'?/)?.[1] ||
-        ""
-      );
-    },
     isCorrect(): boolean {
-      return this.code.includes('<span style="color: #c0216b">lotl</span>');
+      return (
+        /<p>\s*Axo<span style="color: #c0216b">lotl\s*<\/span>\s*<\/p>/i.test(
+          this.code,
+        ) ||
+        /<p>\s*Axo<span style='color: #c0216b'>lotl\s*<\/span>\s*<\/p>/i.test(
+          this.code,
+        )
+      );
     },
   },
 });
@@ -42,27 +41,23 @@ Also keep in mind that some of these users often rely on enlarging text for bett
         class="flex flex-1 flex-row gap-8 rounded-2xl border-2 border-blue-4 bg-blue-3-light p-8 pt-6 shadow-small-drop-shadow *:flex *:flex-1 *:flex-col *:items-center *:gap-4 dark:bg-blue-3-dark"
       >
         <div>
+          <Icon name="mdi:image" size="2rem" />
           <div
-            class="grid flex-1 place-items-center self-stretch text-pretty rounded-2xl bg-blue-5-light object-cover p-4 text-center shadow-small-drop-shadow dark:bg-blue-5-dark"
+            class="grid flex-1 place-items-center self-stretch text-pretty rounded-2xl bg-blue-5-light p-4 text-center shadow-small-drop-shadow dark:bg-blue-5-dark"
           >
             <img
               src="~/assets/img/axolotl-lettering-2.svg"
               alt="axolotl in an aquarium"
+      class="w-full object-cover p-20"
             />
           </div>
         </div>
         <div>
-          <div
-            class="grid flex-1 place-items-center self-stretch text-pretty rounded-2xl bg-blue-5-light object-contain p-4 text-center shadow-small-drop-shadow dark:bg-blue-5-dark"
-          >
-            <p>Replace the image with simple text and use the color #c0216b to style it to look like the image</p>
-          </div>
-        </div>
-        <div>
+          <Icon name="mdi:code" size="2rem" />
           <div
             class="grid flex-1 place-items-center self-stretch rounded-2xl bg-blue-5-light p-4 shadow-small-drop-shadow dark:bg-blue-5-dark"
           >
-            <div v-html="code" class="font-heading text-7xl"></div>
+            <div v-html="code" class="font-heading text-8xl"></div>
           </div>
         </div>
       </div>
@@ -71,7 +66,7 @@ Also keep in mind that some of these users often rely on enlarging text for bett
     img src="axolotl-lettering.png" alt="axolotl lettering">'
         :defaultCode="defaultCode"
         after="</body>"
-        hint="    <--! Use a <span>-Tag to style the last part of Axolotl with the color #c0216b -->"
+        hint="    <--! Write 'Axo' before the <span>-Tag and 'lotl' inside to color it -->"
         :isCorrect
         v-model:currentCode="code"
       ></SingleLineCodeEditor>
