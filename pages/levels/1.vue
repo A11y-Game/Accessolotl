@@ -28,7 +28,7 @@ It turns out that not everybody can simply look at an image on a webpage to unde
       return doc.querySelector("img")?.getAttribute("alt") ?? undefined;
     },
     isCorrect(): boolean {
-      return this.altValue?.includes("axolotl") || false;
+      return (this.altValue?.includes("axolotl") && !this.altValue?.includes("src")) || false;
     },
   },
 });
