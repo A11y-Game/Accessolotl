@@ -26,7 +26,7 @@ Also keep in mind that some of these users often rely on enlarging text for bett
         /<p>\s*Axo<span class="axolotlText">lotl\s*<\/span>\s*<\/p>/i.test(
           this.code,
         ) ||
-        /<p>\s*Axo<span class="axolotlText">lotl\s*<\/span>\s*<\/p>/i.test(
+        /<p>\s*Axo<span class='axolotlText'>lotl\s*<\/span>\s*<\/p>/i.test(
           this.code,
         )
       );
@@ -47,24 +47,24 @@ Also keep in mind that some of these users often rely on enlarging text for bett
           >
             <img
               src="~/assets/img/axolotl-lettering-2-light.svg"
-              alt="axolotl lettering lightmode"
+              alt="text 'axolotl' with the first 3 letters in usual text color and the remaining 4 in dark pink"
               class="w-full object-cover p-20 dark:hidden"
             />
             <img
               src="~/assets/img/axolotl-lettering-2-dark.svg"
-              alt="axolotl lettering darkmode"
+              alt="text 'axolotl' with the first 3 letters in usual text color and the remaining 4 in light pink"
               class="hidden w-full object-cover p-20 dark:block"
             />
           </div>
         </div>
-        <div title="What is accessible for the screen reader ">
+        <div title="What is accessible for the screen reader " class="">
           <Icon name="mdi:code" size="2rem" />
           <div
             class="grid flex-1 place-items-center self-stretch rounded-2xl bg-blue-5-light p-4 shadow-small-drop-shadow dark:bg-blue-5-dark forced-colors:outline"
           >
             <div
               v-html="code"
-              class="font-heading text-8xl [&_span]:text-axolotl-dark dark:[&_span]:text-axolotl-light"
+              class="w-full truncate text-center font-heading text-8xl [&_span]:text-axolotl-dark dark:[&_span]:text-axolotl-light"
             ></div>
           </div>
         </div>
