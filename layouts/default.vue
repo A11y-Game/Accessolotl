@@ -5,17 +5,16 @@ import { useThemeChanger } from '~/composables/themeChanger';
 
 export default {
 	mounted() {
+		if (!this.progressStore.accessGranted(this.progressStore.currentLevel)) {
+			this.progressStore.jumpToLevel(this.progressStore.progress + 1, this.$router);
+		}
+
 		if (!this.themeInitialized()) {
 			this.initialize();
 		}
 
-		this.initialize();
 		if (!this.progressStore.initialized) {
 			this.progressStore.init();
-		}
-
-		if (!this.progressStore.accessGranted(this.progressStore.currentLevel)) {
-			this.progressStore.jumpToLevel(this.progressStore.progress + 1, this.$router);
 		}
 	},
 
