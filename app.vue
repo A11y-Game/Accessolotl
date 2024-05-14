@@ -1,5 +1,12 @@
 <script>
 export default {
+  setup() {
+    useHead({
+      titleTemplate: (titleChunk) => {
+        return titleChunk ? `${titleChunk} - accessolotl` : "accessolotl";
+      },
+    });
+  },
   mounted() {
     if (
       localStorage.getItem("color-theme") === "dark" ||
@@ -60,7 +67,7 @@ export default {
 <template>
   <div class="flex h-screen flex-col">
     <main class="h-0 flex-1 text-text-light dark:text-text-dark">
-      <NuxtLayout >
+      <NuxtLayout>
         <NuxtPage />
       </NuxtLayout>
     </main>
