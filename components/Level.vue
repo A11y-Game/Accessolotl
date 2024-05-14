@@ -34,7 +34,8 @@ export default defineComponent({
 });
 </script>
 <template>
-  <div class="flex h-full flex-1 flex-row items-stretch gap-8 px-16 pb-12">
+  <Title>Level {{ levelNumber }}</Title>
+  <div class="flex h-full flex-1 flex-row items-stretch gap-8 px-16 pb-16">
     <div
       class="flex flex-[3] flex-col items-stretch gap-8 overflow-y-auto pb-3 text-base"
     >
@@ -56,10 +57,14 @@ export default defineComponent({
       </div>
 
       <button
-        class="flex justify-center rounded-2xl p-1 dark:text-blue-1-dark"
+        class="flex justify-center rounded-2xl p-1 dark:text-blue-1-dark forced-colors:outline"
         :disabled="!isCorrect"
         @click="nextLevel"
-        :title="isCorrect ? 'Go to next level' : 'Solve the task first'"
+        :title="
+          isCorrect
+            ? 'Go to next level'
+            : 'Going to next level disallowed: Solve the task first'
+        "
         :class="{
           'bg-button-active dark:bg-button-active': isCorrect,
           'cursor-not-allowed bg-button-disabled dark:bg-button-disabled':
