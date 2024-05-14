@@ -4,7 +4,7 @@ export const useProgressStore = defineStore("progress", {
   state: () => ({
     progress: 0,
     currentLevel: 1,
-    levelCount: 1,
+    levelCount: 2,
     initialized: false,
   }),
   getters: {

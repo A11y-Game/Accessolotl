@@ -19,7 +19,12 @@ export default defineComponent({
     isCorrect: {
       type: Boolean,
       required: true,
-    }
+    },
+    levelNumber: {
+      type: Number,
+      required: true,
+      default: 0,
+    },
   },
   components: {
     VueMarkdown,

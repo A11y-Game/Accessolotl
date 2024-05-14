@@ -6,7 +6,8 @@ export default {
         return titleChunk ? `${titleChunk} - accessolotl` : "accessolotl";
       },
     });
-  },
+  }
+};
 </script>
 
 <template>

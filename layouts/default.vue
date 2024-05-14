@@ -76,7 +76,7 @@ export default {
 			</div>
 
 			<div class="flex justify-between items-center ml-12">
-				<NuxtLink to="about" class="font-heading dark:text-text-dark text-text-light underline text-2xl">
+				<NuxtLink to="/#about" :external=true class="font-heading dark:text-text-dark text-text-light underline text-2xl">
 					About
 					us</NuxtLink>
 				&nbsp;
