@@ -1,5 +1,5 @@
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent } from "vue";
 
 const code = `    <img src="axolotl.jpg"></img>`;
 
@@ -39,18 +39,27 @@ It turns out that not everybody can simply look at an image on a webpage to unde
   },
 });
 </script>
+
 <template>
   <Level :markdown :task :isCorrect :levelNumber="1">
     <div class="flex h-full w-full flex-col gap-8">
       <ImageSeeHearRead filename="axolotl.jpg" :altValue>
         <div
           class="axolotlImage flex-1 self-stretch overflow-hidden rounded-2xl bg-cover bg-center shadow-small-drop-shadow"
-          alt="axolotl in an aquarium"></div>
+          role="img"
+          aria-label="axolotl in an aquarium"
+          title="axolotl in an aquarium"
+        ></div>
       </ImageSeeHearRead>
-      <SingleLineCodeEditor before="<body>
-    <p>Axolotls are listed as critically endangered in the wild.</p>" :defaultCode="defaultCode" after="</body>"
-        hint="    <--! Add an 'alt'-tag of “axolotl in an aquarium” to the image -->" :isCorrect
-        v-model:currentCode="code"></SingleLineCodeEditor>
+      <SingleLineCodeEditor
+        before="<body>
+    <p>Axolotls are listed as critically endangered in the wild.</p>"
+        :defaultCode="defaultCode"
+        after="</body>"
+        hint="    <--! Add an 'alt'-tag of “axolotl in an aquarium” to the image -->"
+        :isCorrect
+        v-model:currentCode="code"
+      ></SingleLineCodeEditor>
     </div>
   </Level>
 </template>
