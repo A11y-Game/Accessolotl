@@ -34,7 +34,8 @@ export default {
           "linear-gradient(rgb(51, 78, 153), rgb(35, 51, 92))",
       },
       boxShadow: {
-        "content-box-drop-shadow": "0px 8px 8px rgba(0, 0, 0, 0.25)",
+        "large-drop-shadow": "0px 8px 8px rgba(0, 0, 0, 0.25)",
+        "small-drop-shadow": "0px 6px 6px rgba(0, 0, 0, 0.25)",
       },
       fontFamily: {
         sans: ["Montserrat", "sans-serif"],

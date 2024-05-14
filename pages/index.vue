@@ -1,42 +1,26 @@
 <script>
+import { useProgressStore } from '../stores/ProgressStore';
+import { mapStores } from 'pinia';
+import { useThemeChanger } from '~/composables/themeChanger';
+
 export default {
 	mounted() {
-		if (
-			localStorage.getItem("color-theme") === "dark" ||
-			(!("color-theme" in localStorage) &&
-				window.matchMedia("(prefers-color-scheme: dark)").matches)
-		) {
-			document.documentElement.classList.add("dark");
-		} else {
-			document.documentElement.classList.remove("dark");
+		this.initialize();
+		if (!this.progressStore.initialized) {
+			this.progressStore.init();
 		}
 	},
 	methods: {
-		toggleTheme() {
-			if (localStorage.getItem("color-theme")) {
-				if (localStorage.getItem("color-theme") === "light") {
-					document.documentElement.classList.add("dark");
-					localStorage.setItem("color-theme", "dark");
-				} else {
-					document.documentElement.classList.remove("dark");
-					localStorage.setItem("color-theme", "light");
-				}
-			} else {
-				if (document.documentElement.classList.contains("dark")) {
-					document.documentElement.classList.remove("dark");
-					localStorage.setItem("color-theme", "light");
-				} else {
-					document.documentElement.classList.add("dark");
-					localStorage.setItem("color-theme", "dark");
-				}
-			}
-		}
+		...useThemeChanger(),
 	},
 	setup() {
 		definePageMeta({
 			layout: false,
 		});
-	}
+	},
+	computed: {
+		...mapStores(useProgressStore),
+	},
 };
 </script>
 
@@ -59,10 +43,10 @@ export default {
 					<Icon name="material-symbols:wb-sunny-outline" class="text-4xl text-text-dark" />
 				</div>
 			</button>
-			<NuxtLink to="levels/1"
+			<button @click="progressStore.jumpToLevel(progressStore.currentLevel, $router)"
 				class="flex h-11 w-64 items-center justify-center rounded-2xl bg-button-active p-1 font-heading text-2xl font-semibold">
 				Play
-			</NuxtLink>
+			</button>
 		</header>
 
 
@@ -87,10 +71,10 @@ export default {
 					<source srcset="assets\img\icons\dark\homepage-arrow-accessibility-dark.svg" />
 					<img src="assets\img\icons\dark\homepage-arrow-accessibility-dark.png" />
 				</picture>
-				<NuxtLink to="levels/1"
+				<button @click="progressStore.jumpToLevel(progressStore.currentLevel, $router)"
 					class="mx-48 mt-8 flex h-16 w-96 items-center justify-center rounded-2xl bg-button-active p-1 font-heading text-3xl font-semibold">
 					Play
-				</NuxtLink>
+				</button>
 				<picture class="hidden h-36 dark:block">
 					<source srcset="assets\img\icons\dark\homepage-arrow-axolotl-dark.svg" />
 					<img src="assets\img\icons\dark\homepage-arrow-axolotl-dark.png" />
