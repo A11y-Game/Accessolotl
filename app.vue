@@ -11,7 +11,7 @@ export default {
 	},
 	data() {
 		return {
-			levelCount: 1
+			levelCount: 2
 		}
 	},
 	methods: {
