@@ -22,19 +22,13 @@ It turns out that not everybody can simply look at an image on a webpage to unde
   },
   computed: {
     /** returns the alt tag value */
-    altValue(): string {
-      return (
-        this.code.match(/alt="([^">]*)"?/)?.[1] ||
-        this.code.match(/alt='([^'>]*)'?/)?.[1] ||
-        ""
-      );
+    altValue(): string | undefined {
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(this.code, "text/html");
+      return doc.querySelector("img")?.getAttribute("alt") ?? undefined;
     },
     isCorrect(): boolean {
-      return (
-        /alt=["][^"]*axolotl[^"]*["]/i.test(this.code) ||
-        /alt=['][^']*axolotl[^']*[']/i.test(this.code) ||
-        /alt=\w*axolotl\w*/i.test(this.code)
-      );
+      return this.altValue?.includes("axolotl") || false;
     },
   },
 });
