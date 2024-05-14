@@ -22,13 +22,8 @@ Also keep in mind that some of these users often rely on enlarging text for bett
   },
   computed: {
     isCorrect(): boolean {
-      return (
-        /<p>\s*Axo<span class="axolotlText">lotl\s*<\/span>\s*<\/p>/i.test(
-          this.code,
-        ) ||
-        /<p>\s*Axo<span class='axolotlText'>lotl\s*<\/span>\s*<\/p>/i.test(
-          this.code,
-        )
+      return /<p>\s*Axo<span class=(('axolotlText')|("axolotlText"))>lotl\s*<\/span>\s*<\/p>/.test(
+        this.code,
       );
     },
   },
@@ -57,7 +52,7 @@ Also keep in mind that some of these users often rely on enlarging text for bett
             />
           </div>
         </div>
-        <div title="What is accessible for the screen reader " class="">
+        <div title="What is accessible for the screen reader ">
           <Icon name="mdi:code" size="2rem" />
           <div
             class="grid flex-1 place-items-center self-stretch rounded-2xl bg-blue-5-light p-4 shadow-small-drop-shadow dark:bg-blue-5-dark forced-colors:outline"
