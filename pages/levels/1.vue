@@ -23,6 +23,10 @@ It turns out that not everybody can simply look at an image on a webpage to unde
   computed: {
     /** returns the alt tag value */
     altValue(): string | undefined {
+      // skip on SSR
+      if (typeof DOMParser === 'undefined') {
+        return undefined;
+      };
       const parser = new DOMParser();
       const doc = parser.parseFromString(this.code, "text/html");
       return doc.querySelector("img")?.getAttribute("alt") ?? undefined;
