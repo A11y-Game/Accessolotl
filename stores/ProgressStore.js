@@ -14,7 +14,7 @@ export const useProgressStore = defineStore("progress", {
     accessGranted(state) {
       return (newLevel) => accessCheck(state.progress, newLevel);
     },
-    // Only returns the next level string if it is accessible
+    /** Only returns the next level string if it is accessible */
     nextLevelString(state) {
       return `${
         accessCheck(state.progress, state.currentLevel + 1)
@@ -32,7 +32,7 @@ export const useProgressStore = defineStore("progress", {
   },
   actions: {
     init() {
-      // Necessary for SSR
+      /** Necessary for SSR */
       if (typeof window !== "undefined") {
         this.progress = parseInt(localStorage.getItem("progress")) || 0;
         this.currentLevel = parseInt(useRoute().fullPath.split("/")[2]) || 1;
@@ -43,11 +43,11 @@ export const useProgressStore = defineStore("progress", {
       this.progress = Math.max(this.progress, this.currentLevel);
       localStorage.setItem("progress", this.progress);
     },
-    // Does nothing as long as the level is inaccessable
+    /** Does nothing as long as the level is inaccessable */
     incrementLevel() {
       this.setLevel(this.currentLevel + 1);
     },
-    // Does nothing as long as the level is inaccessable
+    /** Does nothing as long as the level is inaccessable */
     decrementLevel() {
       this.setLevel(this.currentLevel - 1);
     },

@@ -1,7 +1,9 @@
 export const useThemeChanger = () => {
-let initialized = false;
+  let initialized = false;
 
-let themeInitialized = () => {return initialized};
+  let themeInitialized = () => {
+    return initialized;
+  };
 
   let initialize = () => {
     if (
@@ -13,7 +15,7 @@ let themeInitialized = () => {return initialized};
     } else {
       document.documentElement.classList.remove("dark");
     }
-    initialize = true;
+    initialized = true;
   };
 
   let toggleTheme = () => {

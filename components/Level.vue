@@ -2,9 +2,8 @@
 import VueMarkdown from "vue-markdown-render";
 
 import { defineComponent } from "vue";
-import { useProgressStore } from '../stores/ProgressStore';
-import { mapStores } from 'pinia';
-
+import { useProgressStore } from "../stores/ProgressStore";
+import { mapStores } from "pinia";
 
 export default defineComponent({
   props: {
@@ -41,8 +40,8 @@ export default defineComponent({
   watch: {
     isCorrect(newValue) {
       if (newValue) {
-        const progressStore = useProgressStore();
-        progressStore.levelUp();
+        // const progressStore = useProgressStore();
+        this.progressStore.levelUp();
       }
     },
   },

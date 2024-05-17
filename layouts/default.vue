@@ -1,95 +1,83 @@
 <script>
-import { useProgressStore } from '../stores/ProgressStore';
-import { mapStores } from 'pinia';
-import { useThemeChanger } from '~/composables/themeChanger';
+import { useProgressStore } from "../stores/ProgressStore";
+import { mapStores } from "pinia";
+import { useThemeChanger } from "~/composables/themeChanger";
 
 export default {
-	mounted() {
-		if (!this.progressStore.accessGranted(this.progressStore.currentLevel)) {
-			this.progressStore.jumpToLevel(this.progressStore.progress + 1, this.$router);
-		}
+  mounted() {
+    if (!this.progressStore.accessGranted(this.progressStore.currentLevel)) {
+      this.progressStore.jumpToLevel(
+        this.progressStore.progress + 1,
+        this.$router,
+      );
+    }
 
-		if (!this.themeInitialized()) {
-			this.initialize();
-		}
+    if (!this.themeInitialized()) {
+      this.initialize();
+    }
 
-		if (!this.progressStore.initialized) {
-			this.progressStore.init();
-		}
-	},
+    if (!this.progressStore.initialized) {
+      this.progressStore.init();
+    }
+  },
 
-	computed: {
-		...mapStores(useProgressStore),
-	},
-	methods: {
-		...useThemeChanger(),
-		resetProgress() {
-			this.progressStore.clearProgress();
-			this.progressStore.jumpToLevel(1, this.$router);
-		},
-
-	},
+  computed: {
+    ...mapStores(useProgressStore),
+  },
+  methods: {
+    ...useThemeChanger(),
+  },
 };
 </script>
 
 <template>
-	<div class="flex flex-col dark:bg-blue-1-dark bg-blue-1-light h-screen">
-		<header class="flex justify-between w-11/12 h-20 mt-6 mx-auto mb-6 items-center">
-			<div class="pr-9 flex items-center">
-				<NuxtLink to="/">
-					<picture class="h-11 dark:hidden">
-						<source srcset="~\assets\img\icons\light\accessolotllogo-light.svg">
-						<img src="assets\img\icons\light\accessolotllogo-light.png">
-					</picture>
-					<picture class="h-11 hidden dark:block">
-						<source srcset="assets\img\icons\dark\accessolotllogo-dark.svg">
-						<img src="assets\img\icons\dark\accessolotllogo-dark.png">
-					</picture>
-				</NuxtLink>
-			</div>
-			<div class="flex grow items-center dark:bg-blue-2-dark bg-blue-2-light h-16 rounded-2xl">
-				<button type="button" class=" ml-12 invisible">
-					<Icon name="material-symbols:wb-sunny-outline" class="text-4xl" />
-				</button>
-				<nav class="flex justify-center items-center align-center flex-grow gap-2">
-					<NuxtLink :to="progressStore.prevLevelString" @click="progressStore.decrementLevel">
-						<Icon name="material-symbols:arrow-back-ios-rounded"
-							class="dark:text-text-dark text-text-light text-2xl" />
-					</NuxtLink>
-					<span class="text-2xl dark:text-text-dark text-text-light">Level {{ progressStore.currentLevel
-						}} of {{
-						progressStore.levelCount
-					}}</span>
-					<NuxtLink :to="progressStore.nextLevelString" @click="progressStore.incrementLevel">
-						<Icon name="material-symbols:arrow-forward-ios-rounded"
-							class="dark:text-text-dark text-text-light text-2xl" />
-					</NuxtLink>
-				</nav>
-				<button type="button" class="ml-auto mr-16" @click="toggleTheme()">
-					<div class="dark:hidden">
-						<Icon name="material-symbols:dark-mode-outline" class="text-text-light text-4xl" />
-					</div>
-					<div class=" hidden dark:block">
-						<Icon name="material-symbols:wb-sunny-outline" class="text-text-dark text-4xl" />
-					</div>
-				</button>
-			</div>
+  <div class="flex h-screen flex-col bg-blue-1-light dark:bg-blue-1-dark">
+    <header class="mx-auto my-6 flex h-20 w-11/12 items-center justify-between">
+      <div class="flex items-center pr-9">
+        <NuxtLink to="/">
+          <img src="assets\img\icons\light\accessolotllogo-light.svg" class="h-11 dark:hidden"
+            alt="The Accessolotl Logo" />
+          <img src="assets\img\icons\dark\accessolotllogo-dark.svg" class="hidden h-11 dark:block"
+            alt="The Accessolotl Logo" />
+        </NuxtLink>
+      </div>
+      <div class="flex h-16 grow items-center rounded-2xl bg-blue-2-light dark:bg-blue-2-dark px-16 ">
+        <button type="button" class="invisible">
+          <Icon name="material-symbols:wb-sunny-outline" class="text-4xl"/>
+        </button>
+        <nav class="align-center flex flex-grow items-center justify-center gap-2">
+          <NuxtLink :to="progressStore.prevLevelString" @click="progressStore.decrementLevel">
+            <Icon name="material-symbols:arrow-back-ios-rounded" class="text-2xl text-text-light dark:text-text-dark" />
+          </NuxtLink>
+          <span class="text-2xl text-text-light dark:text-text-dark">
+            Level {{ progressStore.currentLevel }} of {{ progressStore.levelCount }}</span>
+          <NuxtLink :to="progressStore.nextLevelString" @click="progressStore.incrementLevel">
+            <Icon name="material-symbols:arrow-forward-ios-rounded"
+              class="text-2xl text-text-light dark:text-text-dark" />
+          </NuxtLink>
+        </nav>
+        <button type="button" @click="toggleTheme">
+          <div class="dark:hidden">
+            <Icon name="material-symbols:dark-mode-outline" class="text-4xl text-text-light dark:hidden" />
+          </div>
+          <div class="hidden dark:block">
+            <Icon name="material-symbols:wb-sunny-outline" class="text-4xl text-text-dark hidden dark:block" />
+          </div>
+        </button>
+      </div>
 
-			<div class="flex justify-between items-center ml-12">
-				<NuxtLink to="/#about" :external=true class="font-heading dark:text-text-dark text-text-light underline text-2xl">
-					About
-					us</NuxtLink>
-				&nbsp;
-				<a href="https://github.com/A11y-Game/A11y-Game">
-					<Icon name="mdi:github" class="dark:text-text-dark text-text-light text-3xl" />
-				</a>
-			</div>
-		</header>
-		<main class="h-0 flex-1 text-text-light dark:text-text-dark">
-			<slot />
-		</main>
-		<footer class="flex justify-center pb-2">
-			<button type="button" @click="resetProgress">Reset progress</button>
-		</footer>
-	</div>
+      <div class="ml-12 flex items-center justify-between">
+        <NuxtLink to="/#about" :external="true"
+          class="font-heading text-2xl text-text-light underline dark:text-text-dark">
+          About us</NuxtLink>
+        &nbsp;
+        <a href="https://github.com/A11y-Game/A11y-Game">
+          <Icon name="mdi:github" class="text-3xl text-text-light dark:text-text-dark" />
+        </a>
+      </div>
+    </header>
+    <main class="h-0 flex-1 text-text-light dark:text-text-dark">
+      <slot />
+    </main>
+  </div>
 </template>
