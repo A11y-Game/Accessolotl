@@ -5,20 +5,32 @@ import { VueDraggable } from "vue-draggable-plus";
 const code = `    <p><span class="axolotlText"></span></p>`;
 const pool = ref([
   {
-    name: "Heading 1",
-    id: "1",
+    name: "About | accessolotl",
+    id: "h1",
   },
   {
-    name: "Heading 2",
-    id: "2",
+    name: "Our Team",
+    id: "t1",
   },
   {
-    name: "Title 1",
-    id: "3",
+    name: "Top 10 Axolotl Facts - accessolotl",
+    id: "h2",
   },
   {
-    name: "Title 2",
-    id: "4",
+    name: "How does regeneration work?",
+    id: "t2",
+  },
+  {
+    name: "How are they different from salamanders?",
+    id: "t3",
+  },
+  {
+    name: "accessolotl - homepage - imprint",
+    id: "h3",
+  },
+  {
+    name: "Why axolotl is simply the coolest animal",
+    id: "t4",
   },
 ]);
 const titles = ref([]);
@@ -55,10 +67,22 @@ Titles also help with SEO, if used correctly. Here's a little checklist what you
     };
   },
   computed: {
-    isCorrect(): boolean {
-      return /<p>\s*Axo<span class=(('axolotlText')|("axolotlText"))>lotl\s*<\/span>\s*<\/p>/.test(
-        this.code,
+    checkTitles(): boolean {
+      if (this.titles.length === 0) return false;
+      return (
+        this.titles.every((title) => title.id.startsWith("t")) &&
+        this.titles.length === 4
       );
+    },
+    checkHeadings(): boolean {
+      if (this.headings.length === 0) return false;
+      return (
+        this.headings.every((heading) => heading.id.startsWith("h")) &&
+        this.headings.length === 3
+      );
+    },
+    isCorrect(): boolean {
+      return this.checkTitles && this.checkHeadings;
     },
   },
   components: {
@@ -78,11 +102,14 @@ Titles also help with SEO, if used correctly. Here's a little checklist what you
             class="grid flex-1 place-items-center self-stretch text-pretty rounded-2xl bg-blue-5-light p-4 text-center shadow-small-drop-shadow dark:bg-blue-5-dark forced-colors:outline"
           >
             <VueDraggable
-              class="flex h-full w-full flex-col gap-2 overflow-auto rounded p-4 text-center"
+              class="flex h-full w-full flex-col gap-2 overflow-auto rounded-2xl p-4 text-center"
               v-model="titles"
               :animation="150"
               group="people"
               ghostClass="ghost"
+              :class="{
+                'bg-button-active': checkTitles,
+              }"
             >
               <div
                 v-for="item in titles"
@@ -100,11 +127,14 @@ Titles also help with SEO, if used correctly. Here's a little checklist what you
             class="grid flex-1 place-items-center self-stretch rounded-2xl bg-blue-5-light p-4 shadow-small-drop-shadow dark:bg-blue-5-dark forced-colors:outline"
           >
             <VueDraggable
-              class="flex h-full w-full flex-col gap-2 overflow-auto rounded p-4 text-center"
+              class="flex h-full w-full flex-col gap-2 overflow-auto rounded-2xl p-4 text-center"
               v-model="headings"
               :animation="150"
               group="people"
               ghostClass="ghost"
+              :class="{
+                'bg-button-active': checkHeadings,
+              }"
             >
               <div
                 v-for="item in headings"
@@ -116,7 +146,7 @@ Titles also help with SEO, if used correctly. Here's a little checklist what you
             </VueDraggable>
           </div>
         </div>
-        <div title="Take the textboxes out of the pool and sort them">
+        <div title="Take the text boxes out of the pool and sort them">
           <p>Pool</p>
           <div
             class="grid flex-1 place-items-center self-stretch rounded-2xl bg-blue-5-light p-4 shadow-small-drop-shadow dark:bg-blue-5-dark forced-colors:outline"
