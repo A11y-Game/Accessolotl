@@ -7,16 +7,15 @@
 
 <script>
 export default {
-  props: ["error"],
-  layout: "error", // you can set a custom layout for the error page
-  mounted() {
-    this.alertAndRedirect();
+  setup() {
+    definePageMeta({
+      layout: false,
+    });
   },
-  methods: {
-    alertAndRedirect() {
-      alert(this.error.message + "\nWe will direct you to the home page.");
-      this.$nuxt.$router.push("/");
-    },
+  props: ["error"],
+  mounted() {
+    alert(this.error.message + "\nWe will direct you to the home page.");
+    this.$nuxt.$router.push("/");
   },
 };
 </script>
