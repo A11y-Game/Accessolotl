@@ -2,6 +2,8 @@
 import VueMarkdown from "vue-markdown-render";
 
 import { defineComponent } from "vue";
+import { useProgressStore } from "../stores/ProgressStore";
+import { mapStores } from "pinia";
 
 export default defineComponent({
   props: {
@@ -28,7 +30,19 @@ export default defineComponent({
   },
   methods: {
     nextLevel() {
-      this.$router.push((this.levelNumber + 1).toString());
+      this.progressStore.incrementLevel();
+      this.$router.push(this.progressStore.nextLevelString);
+    },
+  },
+  computed: {
+    ...mapStores(useProgressStore),
+  },
+  watch: {
+    isCorrect(newValue) {
+      if (newValue) {
+        
+        this.progressStore.levelUp();
+      }
     },
   },
 });

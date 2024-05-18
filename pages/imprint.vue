@@ -99,11 +99,19 @@
     </div>
     <NuxtLink
       to="/"
-      class="flex h-16 w-56 items-center justify-center rounded-2xl bg-blue-5-light p-1 font-heading text-2xl font-semibold shadow-content-box-drop-shadow dark:bg-blue-5-dark"
+      class="shadow-content-box-drop-shadow flex h-16 w-56 items-center justify-center rounded-2xl bg-blue-5-light p-1 font-heading text-2xl font-semibold dark:bg-blue-5-dark"
     >
       Back</NuxtLink
     >
   </div>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts">
+export default {
+  setup() {
+    definePageMeta({
+      layout: false,
+    });
+  },
+};
+</script>
