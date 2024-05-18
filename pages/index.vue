@@ -1,8 +1,37 @@
+<script>
+import { useProgressStore } from "../stores/ProgressStore";
+import { mapStores } from "pinia";
+import { useThemeChanger } from "~/composables/themeChanger";
+
+export default {
+  mounted() {
+    if (!this.themeInitialized()) {
+      this.initialize();
+    }
+
+    if (!this.progressStore.initialized) {
+      this.progressStore.init();
+    }
+  },
+  methods: {
+    ...useThemeChanger(),
+  },
+  setup() {
+    definePageMeta({
+      layout: false,
+    });
+  },
+  computed: {
+    ...mapStores(useProgressStore),
+  },
+};
+</script>
+
 <template>
   <div
     class="flex h-screen flex-col overflow-scroll bg-gradient-to-b from-blue-1-light to-blue-5-light p-16 dark:bg-gradient-to-b dark:from-blue-4 dark:to-blue-1-dark"
   >
-    <div class="flex place-content-between items-center">
+    <div class="flex justify-between">
       <NuxtLink to="/">
         <img
           src="~\assets\img\icons\light\accessolotllogo-light.svg"
@@ -13,26 +42,30 @@
           class="hidden h-11 dark:block"
         />
       </NuxtLink>
-      <button type="button" class="ml-auto mr-8" @click="toggleTheme()">
-        <div class="dark:hidden">
-          <Icon
-            name="material-symbols:dark-mode-outline"
-            class="text-4xl text-text-light"
-          />
-        </div>
-        <div class="hidden dark:block">
-          <Icon
-            name="material-symbols:wb-sunny-outline"
-            class="text-4xl text-text-dark"
-          />
-        </div>
-      </button>
-      <NuxtLink
-        to="levels/1"
-        class="flex h-11 w-64 items-center justify-center rounded-2xl bg-button-active p-1 font-heading text-2xl font-semibold"
-      >
-        Play
-      </NuxtLink>
+      <div class="row flex gap-8">
+        <button type="button" @click="toggleTheme">
+          <div class="dark:hidden">
+            <Icon
+              name="material-symbols:dark-mode-outline"
+              class="text-4xl text-text-light dark:hidden"
+            />
+          </div>
+          <div class="hidden dark:block">
+            <Icon
+              name="material-symbols:wb-sunny-outline"
+              class="hidden text-4xl text-text-dark dark:block"
+            />
+          </div>
+        </button>
+        <button
+          @click="
+            progressStore.jumpToLevel(progressStore.currentLevel, $router)
+          "
+          class="flex h-11 w-64 items-center justify-center rounded-2xl bg-button-active p-1 font-heading text-2xl font-semibold"
+        >
+          Play
+        </button>
+      </div>
     </div>
     <div class="mt-32 flex-1 justify-center text-center text-6xl">
       <p class="font-heading">Welcome to</p>
@@ -60,12 +93,14 @@
           src="~\assets\img\icons\dark\homepage-arrow-accessibility-dark.svg"
           class="hidden h-36 dark:block"
         />
-        <NuxtLink
-          to="levels/1"
-          class="mx-32 mt-6 flex h-16 w-96 items-center justify-center rounded-2xl bg-button-active p-1 font-heading text-3xl font-semibold shadow-content-box-drop-shadow"
+        <button
+          @click="
+            progressStore.jumpToLevel(progressStore.currentLevel, $router)
+          "
+          class="shadow-content-box-drop-shadow mx-32 mt-6 flex h-16 w-96 items-center justify-center rounded-2xl bg-button-active p-1 font-heading text-3xl font-semibold"
         >
           Play
-        </NuxtLink>
+        </button>
         <img
           src="~\assets\img\icons\light\homepage-arrow-axolotl-light.svg"
           class="h-36 dark:hidden"
@@ -149,40 +184,3 @@
     </div>
   </div>
 </template>
-
-<script lang="ts">
-export default {
-  mounted() {
-    if (
-      localStorage.getItem("color-theme") === "dark" ||
-      (!("color-theme" in localStorage) &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches)
-    ) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  },
-  methods: {
-    toggleTheme() {
-      if (localStorage.getItem("color-theme")) {
-        if (localStorage.getItem("color-theme") === "light") {
-          document.documentElement.classList.add("dark");
-          localStorage.setItem("color-theme", "dark");
-        } else {
-          document.documentElement.classList.remove("dark");
-          localStorage.setItem("color-theme", "light");
-        }
-      } else {
-        if (document.documentElement.classList.contains("dark")) {
-          document.documentElement.classList.remove("dark");
-          localStorage.setItem("color-theme", "light");
-        } else {
-          document.documentElement.classList.add("dark");
-          localStorage.setItem("color-theme", "dark");
-        }
-      }
-    },
-  },
-};
-</script>
