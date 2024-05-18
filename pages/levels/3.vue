@@ -2,35 +2,34 @@
 import { defineComponent, ref } from "vue";
 import { VueDraggable } from "vue-draggable-plus";
 
-const code = `    <p><span class="axolotlText"></span></p>`;
 const pool = ref([
   {
     name: "About | accessolotl",
-    id: "h1",
-  },
-  {
-    name: "Our Team",
     id: "t1",
   },
   {
-    name: "Top 10 Axolotl Facts - accessolotl",
-    id: "h2",
+    name: "Our Team",
+    id: "h1",
   },
   {
-    name: "How does regeneration work?",
+    name: "Top 10 Axolotl Facts - accessolotl",
     id: "t2",
   },
   {
-    name: "How are they different from salamanders?",
-    id: "t3",
+    name: "How does regeneration work?",
+    id: "h2",
   },
   {
-    name: "accessolotl - homepage - imprint",
+    name: "How are they different from salamanders?",
     id: "h3",
   },
   {
+    name: "accessolotl - homepage - imprint",
+    id: "t3",
+  },
+  {
     name: "Why axolotl is simply the coolest animal",
-    id: "t4",
+    id: "h4",
   },
 ]);
 const titles = ref([]);
@@ -58,8 +57,6 @@ Titles also help with SEO, if used correctly. Here's a little checklist what you
 - [Providing headings](https://www.w3.org/WAI/WCAG22/Techniques/general/G130.html)
 - [Writing better titles](https://contentcreation.ai/writing-better-titles/)`,
 
-      code,
-      defaultCode: code,
       task: "Is it a title or a heading?",
       pool,
       titles,
@@ -68,17 +65,15 @@ Titles also help with SEO, if used correctly. Here's a little checklist what you
   },
   computed: {
     checkTitles(): boolean {
-      if (this.titles.length === 0) return false;
       return (
         this.titles.every((title) => title.id.startsWith("t")) &&
-        this.titles.length === 4
+        this.titles.length === 3
       );
     },
     checkHeadings(): boolean {
-      if (this.headings.length === 0) return false;
       return (
         this.headings.every((heading) => heading.id.startsWith("h")) &&
-        this.headings.length === 3
+        this.headings.length === 4
       );
     },
     isCorrect(): boolean {
