@@ -87,13 +87,10 @@ export default defineComponent({
   watch: {
     isCorrect(newValue) {
       if (newValue && this.isLastLevel) {
-        // This is needed to show even the last character entered and not alert before (would happen when isCorrect is true)
-        document.addEventListener("keyup", (event) => {
-          alert(
-            "Congratulations, you did it! You've completed all levels!\n\nDon't forget to refer to the resources on our welcome page to dive deeper into web accessibility!",
-          );
-          this.fireConfetti();
-        });
+        alert(
+          "🎉 Congratulations, you did it! 🎉\nYou've completed all levels! 🥳🎊\n\nDon't forget to refer to the resources on our welcome page to dive even deeper into web accessibility! 📚💻",
+        );
+        this.fireConfetti();
       } else if (newValue) {
         this.progressStore.levelUp();
       }
