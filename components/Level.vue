@@ -1,9 +1,10 @@
-<script lang="ts">
+<script>
 import VueMarkdown from "vue-markdown-render";
 
 import { defineComponent } from "vue";
 import { useProgressStore } from "../stores/ProgressStore";
 import { mapStores } from "pinia";
+import confetti from "canvas-confetti";
 
 export default defineComponent({
   props: {
@@ -30,17 +31,70 @@ export default defineComponent({
   },
   methods: {
     nextLevel() {
-      this.progressStore.incrementLevel();
-      this.$router.push(this.progressStore.nextLevelString);
+      if (this.isLastLevel) {
+        this.fireConfetti();
+      } else {
+        this.progressStore.incrementLevel();
+        this.$router.push(this.progressStore.nextLevelString);
+      }
+    },
+    fireConfetti() {
+      var count = 200;
+      var defaults = {
+        origin: { x: 0.85, y: 0.8 },
+      };
+
+      function fire(particleRatio, opts) {
+        confetti({
+          ...defaults,
+          ...opts,
+          angle: 90 + Math.random() * 45,
+          particleCount: Math.floor(count * particleRatio),
+          disableForReducedMotion: true,
+        });
+      }
+
+      fire(0.25, {
+        spread: 26,
+        startVelocity: 55,
+      });
+      fire(0.2, {
+        spread: 60,
+      });
+      fire(0.35, {
+        spread: 100,
+        decay: 0.91,
+        scalar: 0.8,
+      });
+      fire(0.1, {
+        spread: 120,
+        startVelocity: 25,
+        decay: 0.92,
+        scalar: 1.2,
+      });
+      fire(0.1, {
+        spread: 120,
+        startVelocity: 45,
+      });
     },
   },
   computed: {
     ...mapStores(useProgressStore),
+    isLastLevel() {
+      return this.progressStore.currentLevel === this.progressStore.levelCount;
+    },
   },
   watch: {
     isCorrect(newValue) {
-      if (newValue) {
-        
+      if (newValue && this.isLastLevel) {
+        // This is needed to show even the last character entered and not alert before (would happen when isCorrect is true)
+        document.addEventListener("keyup", (event) => {
+          alert(
+            "Congratulations, you did it! You've completed all levels!\n\nDon't forget to refer to the resources on our welcome page to dive deeper into web accessibility!",
+          );
+          this.fireConfetti();
+        });
+      } else if (newValue) {
         this.progressStore.levelUp();
       }
     },
@@ -71,13 +125,15 @@ export default defineComponent({
       </div>
 
       <button
-        class="flex justify-center rounded-2xl p-1 dark:text-blue-1-dark forced-colors:outline"
+        class="flex justify-center rounded-2xl p-1 hover:opacity-90 active:opacity-60 dark:text-blue-1-dark forced-colors:outline"
         :disabled="!isCorrect"
         @click="nextLevel"
         :title="
-          isCorrect
-            ? 'Go to next level'
-            : 'Going to next level disallowed: Solve the task first'
+          isLastLevel && isCorrect
+            ? 'Fire confetti!'
+            : isCorrect
+              ? 'Go to next level'
+              : 'Going to next level disallowed: Solve the task first'
         "
         :class="{
           'bg-button-active dark:bg-button-active': isCorrect,
@@ -85,7 +141,14 @@ export default defineComponent({
             !isCorrect,
         }"
       >
-        <Icon name="ic:round-navigate-next" class="size-12" />
+        <Icon
+          :name="
+            isLastLevel && isCorrect
+              ? 'noto:party-popper'
+              : 'ic:round-navigate-next'
+          "
+          class="size-12"
+        />
       </button>
     </div>
   </div>
