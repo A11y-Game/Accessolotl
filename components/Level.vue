@@ -71,6 +71,7 @@ export default defineComponent({
       </div>
 
       <button
+        aria-live="polite"
         class="flex justify-center rounded-2xl p-1 dark:text-blue-1-dark forced-colors:outline"
         :disabled="!isCorrect"
         @click="nextLevel"

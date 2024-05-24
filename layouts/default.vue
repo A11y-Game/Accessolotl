@@ -59,6 +59,7 @@ export default {
           <NuxtLink
             :to="progressStore.prevLevelString"
             @click="progressStore.decrementLevel"
+            title="Previous Level"
           >
             <Icon
               name="material-symbols:arrow-back-ios-rounded"
@@ -72,6 +73,7 @@ export default {
           <NuxtLink
             :to="progressStore.nextLevelString"
             @click="progressStore.incrementLevel"
+            title="Next Level"
           >
             <Icon
               name="material-symbols:arrow-forward-ios-rounded"
@@ -79,7 +81,7 @@ export default {
             />
           </NuxtLink>
         </nav>
-        <button type="button" @click="toggleTheme">
+        <button type="button" @click="toggleTheme" title="Toggle theme">
           <div class="dark:hidden">
             <Icon
               name="material-symbols:dark-mode-outline"
@@ -104,7 +106,7 @@ export default {
           About us</NuxtLink
         >
         &nbsp;
-        <a href="https://github.com/A11y-Game/A11y-Game">
+        <a href="https://github.com/A11y-Game/A11y-Game" title="View source code on GitHub">
           <Icon
             name="mdi:github"
             class="text-3xl text-text-light dark:text-text-dark"

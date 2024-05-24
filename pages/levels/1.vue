@@ -60,6 +60,9 @@ Also keep in mind that some of these users often rely on enlarging text for bett
             <div
               v-html="code"
               class="w-full truncate text-center font-heading text-8xl [&_span]:text-axolotl-dark dark:[&_span]:text-axolotl-light"
+              aria-live="polite"
+              aria-atomic="true"
+              aria-relevant="all"
             ></div>
           </div>
         </div>
