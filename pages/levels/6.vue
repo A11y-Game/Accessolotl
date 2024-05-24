@@ -48,7 +48,7 @@ There are many more ARIA attributes. For more information, check out the links b
       );
     },
     screenReader(): string {
-      return `"Throw dice" button. ${this.isCorrect ? this.results.join(", ") : '3'}`;
+      return `"Throw dice" button. ${this.isCorrect ? this.results.join(", ") : "3"}`;
     },
   },
   methods: {
@@ -77,7 +77,6 @@ There are many more ARIA attributes. For more information, check out the links b
                 class="rounded bg-blue-5-dark p-4 text-white dark:bg-blue-5-light dark:text-black"
                 @click="throwDice"
               >
-
                 Throw dice <Icon name="ri:dice-fill" size="1rem"></Icon>
               </button>
               <div
@@ -90,7 +89,12 @@ There are many more ARIA attributes. For more information, check out the links b
           </div>
         </div>
 
-        <div aria-live="polite" aria-relevant="all" aria-atomic="true" title="What users using a screen reader hear">
+        <div
+          aria-live="polite"
+          aria-relevant="all"
+          aria-atomic="true"
+          title="What users using a screen reader hear"
+        >
           <h2 class="sr-only">What users using a screen reader hear"</h2>
           <Icon
             name="material-symbols:hearing"

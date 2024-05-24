@@ -106,7 +106,10 @@ export default {
           About us</NuxtLink
         >
         &nbsp;
-        <a href="https://github.com/A11y-Game/A11y-Game" title="View source code on GitHub">
+        <a
+          href="https://github.com/A11y-Game/A11y-Game"
+          title="View source code on GitHub"
+        >
           <Icon
             name="mdi:github"
             class="text-3xl text-text-light dark:text-text-dark"
