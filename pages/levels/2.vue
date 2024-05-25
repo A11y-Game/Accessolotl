@@ -24,15 +24,19 @@ It turns out that not everybody can simply look at an image on a webpage to unde
     /** returns the alt tag value */
     altValue(): string | undefined {
       // skip on SSR
-      if (typeof DOMParser === 'undefined') {
+      if (typeof DOMParser === "undefined") {
         return undefined;
-      };
+      }
       const parser = new DOMParser();
       const doc = parser.parseFromString(this.code, "text/html");
       return doc.querySelector("img")?.getAttribute("alt") ?? undefined;
     },
     isCorrect(): boolean {
-      return (this.altValue?.includes("axolotl") && !this.altValue?.includes("src")) || false;
+      return (
+        (this.altValue?.includes("axolotl") &&
+          !this.altValue?.includes("src")) ||
+        false
+      );
     },
   },
 });

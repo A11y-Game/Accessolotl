@@ -40,7 +40,6 @@ export default defineComponent({
   watch: {
     isCorrect(newValue) {
       if (newValue) {
-        
         this.progressStore.levelUp();
       }
     },

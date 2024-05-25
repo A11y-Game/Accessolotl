@@ -7,7 +7,7 @@ export const useThemeChanger = () => {
 
   let initialize = () => {
     if (
-      localStorage.getItem("color-theme") === "dark" ||
+      getTheme() === "dark" ||
       (!("color-theme" in localStorage) &&
         window.matchMedia("(prefers-color-scheme: dark)").matches)
     ) {
@@ -19,8 +19,8 @@ export const useThemeChanger = () => {
   };
 
   let toggleTheme = () => {
-    if (localStorage.getItem("color-theme")) {
-      if (localStorage.getItem("color-theme") === "light") {
+    if (getTheme()) {
+      if (getTheme() === "light") {
         document.documentElement.classList.add("dark");
         localStorage.setItem("color-theme", "dark");
       } else {
@@ -38,9 +38,14 @@ export const useThemeChanger = () => {
     }
   };
 
+  let getTheme = () => {
+    return localStorage.getItem("color-theme");
+  };
+
   return {
     initialize,
     toggleTheme,
     themeInitialized,
+    getTheme,
   };
 };
