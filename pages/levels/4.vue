@@ -116,21 +116,10 @@ Let’s finish off with a quote from the MDN web docs:
     toggleHint() {
       this.showHint = !this.showHint;
     },
-
-    reset() {
-      this.initializeColors();
-    },
-
     ...useThemeChanger(),
   },
   mounted() {
     this.initializeColors();
-  },
-  watch: {
-    theme() {
-      this.initializeColors();
-      console.log("Theme changed");
-    },
   },
   components: {
     ColorPickerContrastDisplay,
@@ -142,38 +131,26 @@ Let’s finish off with a quote from the MDN web docs:
     <div class="flex h-full w-full flex-col gap-8">
       <div
         class="flex flex-1 flex-col justify-start gap-4 rounded-2xl border-2 border-blue-4 p-8 pt-4 shadow-small-drop-shadow *:flex *:flex-1 *:flex-col *:items-center *:gap-4"
-        :style="{ backgroundColor: headerBgColor }"
-      >
-        <h1
-          class="font-heading text-3xl"
-          :style="{
-            color: headerColor,
-          }"
-        >
+        :style="{ backgroundColor: headerBgColor }">
+        <h1 class="font-heading text-3xl" :style="{
+    color: headerColor,
+  }">
           About Axolotls
         </h1>
-        <div
-          title="A short text about axolotls and accessibility"
+        <div title="A short text about axolotls and accessibility"
           class="flex-1 place-items-center self-stretch text-pretty rounded-2xl p-4 text-center shadow-small-drop-shadow forced-colors:outline"
-          :style="{ backgroundColor: pBgColor }"
-        >
-          <p
-            class="text-left"
-            :style="{
-              color: pColor,
-            }"
-          >
+          :style="{ backgroundColor: pBgColor }">
+          <p class="text-left" :style="{
+    color: pColor,
+  }">
             The axolotl is a unique amphibian species native to Mexico. It is
             known for its regenerative abilities and its cute appearance.
             Axolotls have become popular pets due to their fascinating
             characteristics.
           </p>
-          <p
-            class="text-left"
-            :style="{
-              color: pColor,
-            }"
-          >
+          <p class="text-left" :style="{
+    color: pColor,
+  }">
             However, as humans, we don't possess the same regenerative abilities
             as axolotls. That's why it's important to ensure that individuals
             with disabilities can live the same life as us. Accessibility plays
@@ -182,44 +159,25 @@ Let’s finish off with a quote from the MDN web docs:
         </div>
       </div>
       <div
-        class="flex flex-col gap-2 rounded-2xl bg-blue-3-light p-3 shadow-large-drop-shadow dark:bg-blue-5-dark forced-colors:outline forced-colors:outline-offset-[-2px]"
-      >
+        class="flex flex-col gap-2 rounded-2xl bg-blue-3-light p-3 shadow-large-drop-shadow dark:bg-blue-5-dark forced-colors:outline forced-colors:outline-offset-[-2px]">
         <div class="flex items-center justify-around gap-2">
-          <ColorPickerContrastDisplay
-            headerText="Header"
-            :colorPickerColor="headerColor"
-            @update:color="(color) => (this.headerColor = color)"
-            @correctContrast="
-              (contrastCorrect) => (headerContrastOk = contrastCorrect)
-            "
-            :bgColor="headerBgColor"
-            contrastRestriction="3"
-          />
+          <ColorPickerContrastDisplay headerText="Header" :colorPickerColor="headerColor"
+            @update:color="(color) => (this.headerColor = color)" @correctContrast="(contrastCorrect) => (headerContrastOk = contrastCorrect)
+    " :bgColor="headerBgColor" contrastRestriction="3" />
 
-          <ColorPickerContrastDisplay
-            headerText="Paragraph"
-            :bgColor="pBgColor"
-            :colorPickerColor="pColor"
-            @update:color="(color) => (this.pColor = color)"
-            @correctContrast="
-              (contrastCorrect) => (pContrastOk = contrastCorrect)
-            "
-            contrastRestriction="4.5"
-          />
+          <ColorPickerContrastDisplay headerText="Paragraph" :bgColor="pBgColor" :colorPickerColor="pColor"
+            @update:color="(color) => (this.pColor = color)" @correctContrast="(contrastCorrect) => (pContrastOk = contrastCorrect)
+    " contrastRestriction="4.5" />
 
           <div class="flex flex-row justify-center gap-3">
-            <button
-              @click="toggleHint"
+            <button @click="toggleHint"
               class="size-12 rounded-lg bg-axolotl-light shadow-small-drop-shadow hover:bg-axolotl-dark dark:bg-axolotl-dark hover:dark:bg-axolotl-light forced-colors:text-[ButtonText] forced-colors:outline forced-colors:outline-[ButtonBorder]"
-              :title="showHint ? `Hide hint` : `Show hint`"
-            >
+              :title="showHint ? `Hide hint` : `Show hint`">
               <Icon name="lucide:lightbulb" class="size-8" />
             </button>
-            <button
-              @click="reset"
+            <button @click="initializeColors"
               class="size-12 rounded-lg bg-blue-5-light shadow-small-drop-shadow hover:bg-blue-5-dark dark:bg-blue-4 hover:dark:bg-blue-2-dark forced-colors:text-[ButtonText] forced-colors:outline forced-colors:outline-[ButtonBorder]"
-              title="Reset colors"
-            >
+              title="Reset colors">
               <Icon name="lucide:rotate-ccw" class="size-7" />
             </button>
           </div>

@@ -28,11 +28,7 @@ export default {
   },
   watch: {
     isCorrect(newValue) {
-      if (newValue) {
-        this.$emit("correctContrast", true);
-      } else {
-        this.$emit("correctContrast", false);
-      }
+      this.$emit("correctContrast", newValue);
     },
   },
 
@@ -50,15 +46,15 @@ export default {
         let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
         return result
           ? {
-              r: parseInt(result[1], 16),
-              g: parseInt(result[2], 16),
-              b: parseInt(result[3], 16),
-            }
+            r: parseInt(result[1], 16),
+            g: parseInt(result[2], 16),
+            b: parseInt(result[3], 16),
+          }
           : {
-              r: 0,
-              g: 0,
-              b: 0,
-            };
+            r: 0,
+            g: 0,
+            b: 0,
+          };
       }
 
       function luminance(r = 0, g = 0, b = 0) {
@@ -96,15 +92,10 @@ export default {
 
 <template>
   <div class="flex items-start gap-2 p-1">
-    <div
-      :title="
-        headerText + ' contrast' + (contrast.passes ? ' success' : ' fail')
-      "
-    >
-      <Icon
-        :name="contrast.passes ? 'hugeicons:tick-01' : 'oui:cross'"
-        class="text-3xl text-text-light dark:text-text-dark"
-      />
+    <div :title="headerText + ' contrast' + (contrast.passes ? ' success' : ' fail')
+      ">
+      <Icon :name="contrast.passes ? 'hugeicons:tick-01' : 'oui:cross'"
+        class="text-3xl text-text-light dark:text-text-dark" />
     </div>
 
     <div class="flex flex-col">
@@ -113,17 +104,11 @@ export default {
       </div>
 
       <div class="flex items-center gap-2">
-        <input
-          type="color"
-          :value="colorPickerColor"
-          @input="setColor"
-          :id="headerText + 'ColorPicker'"
-          class="h-9 w-8 cursor-pointer bg-transparent"
-          :title="headerText + ' color picker'"
-        />
+        <input type="color" :value="colorPickerColor" @input="setColor" :id="headerText + 'ColorPicker'"
+          class="h-9 w-8 cursor-pointer bg-transparent" :title="headerText + ' color picker'" />
         <label :for="headerText + 'ColorPicker'" class="cursor-pointer">{{
-          colorPickerColor
-        }}</label>
+      colorPickerColor
+    }}</label>
       </div>
 
       <p>
