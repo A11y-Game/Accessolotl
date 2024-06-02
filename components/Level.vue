@@ -120,6 +120,7 @@ export default defineComponent({
       </div>
 
       <button
+        aria-live="polite"
         class="flex justify-center rounded-2xl p-1 hover:opacity-90 active:opacity-60 dark:text-blue-1-dark forced-colors:outline"
         :disabled="!isCorrect" @click="nextLevel" :title="isCorrect ? (isLastLevel ? 'Fire confetti!' : 'Go to next level')
     : 'Going to next level disallowed: Solve the task first'
