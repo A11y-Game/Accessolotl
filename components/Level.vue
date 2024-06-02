@@ -103,9 +103,12 @@ export default defineComponent({
 <template>
   <Title>Level {{ levelNumber }}</Title>
   <div class="flex h-full flex-1 flex-row items-stretch gap-8 px-16 pb-16">
-    <div class="flex flex-[3] flex-col items-stretch gap-8 overflow-y-auto pb-3 text-base">
+    <div
+      class="flex flex-[3] flex-col items-stretch gap-8 overflow-y-auto pb-3 text-base"
+    >
       <div
-        class="flex-none rounded-2xl border-2 border-blue-4 bg-blue-3-light p-4 text-center font-heading text-xl font-semibold shadow-large-drop-shadow dark:bg-blue-3-dark">
+        class="flex-none rounded-2xl border-2 border-blue-4 bg-blue-3-light p-4 text-center font-heading text-xl font-semibold shadow-large-drop-shadow dark:bg-blue-3-dark"
+      >
         <p>{{ task }}</p>
       </div>
       <div class="flex-1">
@@ -115,26 +118,36 @@ export default defineComponent({
 
     <div class="flex flex-1 flex-col items-stretch gap-8 pb-3">
       <div
-        class="prose flex-1 overflow-y-auto rounded-2xl border-2 border-blue-4 bg-blue-3-light p-8 shadow-large-drop-shadow dark:prose-invert first:*:*:mt-0 dark:bg-blue-3-dark">
+        class="prose flex-1 overflow-y-auto rounded-2xl border-2 border-blue-4 bg-blue-3-light p-8 shadow-large-drop-shadow dark:prose-invert first:*:*:mt-0 dark:bg-blue-3-dark"
+      >
         <VueMarkdown :source="markdown" />
       </div>
 
       <button
         aria-live="polite"
         class="flex justify-center rounded-2xl p-1 hover:opacity-90 active:opacity-60 dark:text-blue-1-dark forced-colors:outline"
-        :disabled="!isCorrect" @click="nextLevel" :title="isCorrect ? (isLastLevel ? 'Fire confetti!' : 'Go to next level')
-    : 'Going to next level disallowed: Solve the task first'
-    " :class="{
-    'bg-button-active dark:bg-button-active': isCorrect,
-    'cursor-not-allowed bg-button-disabled dark:bg-button-disabled':
-      !isCorrect,
-  }">
-        <Icon :name="isLastLevel
-    ? 'noto:party-popper'
-    : 'ic:round-navigate-next'
-    " class="size-12" :class="{
-    'grayscale opacity-70': !isCorrect && isLastLevel,
-  }" />
+        :disabled="!isCorrect"
+        @click="nextLevel"
+        :title="
+          isCorrect
+            ? isLastLevel
+              ? 'Fire confetti!'
+              : 'Go to next level'
+            : 'Going to next level disallowed: Solve the task first'
+        "
+        :class="{
+          'bg-button-active dark:bg-button-active': isCorrect,
+          'cursor-not-allowed bg-button-disabled dark:bg-button-disabled':
+            !isCorrect,
+        }"
+      >
+        <Icon
+          :name="isLastLevel ? 'noto:party-popper' : 'ic:round-navigate-next'"
+          class="size-12"
+          :class="{
+            'opacity-70 grayscale': !isCorrect && isLastLevel,
+          }"
+        />
       </button>
     </div>
   </div>

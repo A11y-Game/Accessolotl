@@ -12,7 +12,7 @@ export default defineComponent({
 
 Achieving a strong contrast between font and background colors is essential for optimal legibility, especially for users with visual impairments or color vision deficiencies.
 
-Therefore, you should choose your color scheme thoughtfully, ensuring a minimum contrast ratio of 4.5 : 1 for standard text and 3 : 1 for larger text sizes (larger than 18 pt or 14 pt for bold text). Aim for even higher ratios for maximum legibility.
+Therefore, you should choose your color scheme thoughtfully, ensuring a minimum contrast ratio of 4.5&nbsp;:&nbsp;1 for standard text and 3&nbsp;:&nbsp;1 for larger text sizes (larger than 18 pt or 14 pt for bold text). Aim for even higher ratios for maximum legibility.
 
 Keep in mind that purely decorative text (without any specific function) or text within pictures (i.e., photographs) is typically exempt as long as these aren’t images of text as described in Level 1.
 
@@ -128,29 +128,39 @@ Let’s finish off with a quote from the MDN web docs:
 </script>
 <template>
   <Level :markdown :task :isCorrect :levelNumber="4">
-    <div class="flex h-full w-full flex-col gap-8 justify-start">
+    <div class="flex h-full w-full flex-col justify-start gap-8">
       <div
-        class="flex flex-col justify-start grow rounded-2xl border-2 border-blue-4 p-8 pt-4 shadow-small-drop-shadow *:flex *:items-center gap-4 "
-        :style="{ backgroundColor: headerBgColor }">
-        <h1 class="font-heading text-3xl self-center" :style="{
-    color: headerColor,
-  }">
+        class="flex grow flex-col justify-start gap-4 rounded-2xl border-2 border-blue-4 p-8 pt-4 shadow-small-drop-shadow *:flex *:items-center"
+        :style="{ backgroundColor: headerBgColor }"
+      >
+        <h1
+          class="self-center font-heading text-3xl"
+          :style="{
+            color: headerColor,
+          }"
+        >
           About Axolotls
         </h1>
-        <div title="A short text about axolotls and accessibility"
+        <div
+          title="A short text about axolotls and accessibility"
           class="flex-col text-pretty rounded-2xl p-4 shadow-small-drop-shadow forced-colors:outline [&>p]:text-left"
-          :style="{ backgroundColor: pBgColor }">
-          <p :style="{
-    color: pColor,
-  }">
+          :style="{ backgroundColor: pBgColor }"
+        >
+          <p
+            :style="{
+              color: pColor,
+            }"
+          >
             The axolotl is a unique amphibian species native to Mexico. It is
             known for its regenerative abilities and its cute appearance.
             Axolotls have become popular pets due to their fascinating
             characteristics.
           </p>
-          <p :style="{
-    color: pColor,
-  }">
+          <p
+            :style="{
+              color: pColor,
+            }"
+          >
             However, as humans, we don't possess the same regenerative abilities
             as axolotls. That's why it's important to ensure that individuals
             with disabilities can live the same life as us. Accessibility plays
@@ -159,25 +169,44 @@ Let’s finish off with a quote from the MDN web docs:
         </div>
       </div>
       <div
-        class="flex flex-col gap-2 rounded-2xl bg-blue-3-light p-3 shadow-large-drop-shadow dark:bg-blue-5-dark forced-colors:outline forced-colors:outline-offset-[-2px]">
+        class="flex flex-col gap-2 rounded-2xl bg-blue-3-light p-3 shadow-large-drop-shadow dark:bg-blue-5-dark forced-colors:outline forced-colors:outline-offset-[-2px]"
+      >
         <div class="flex items-center justify-around gap-2">
-          <ColorPickerContrastDisplay headerText="Header" :colorPickerColor="headerColor"
-            @update:color="(color) => (this.headerColor = color)" @correctContrast="(contrastCorrect) => (headerContrastOk = contrastCorrect)
-    " :bgColor="headerBgColor" contrastRestriction="3" />
+          <ColorPickerContrastDisplay
+            headerText="Header"
+            :colorPickerColor="headerColor"
+            @update:color="(color) => (this.headerColor = color)"
+            @correctContrast="
+              (contrastCorrect) => (headerContrastOk = contrastCorrect)
+            "
+            :bgColor="headerBgColor"
+            :contrastRestriction="3"
+          />
 
-          <ColorPickerContrastDisplay headerText="Paragraph" :bgColor="pBgColor" :colorPickerColor="pColor"
-            @update:color="(color) => (this.pColor = color)" @correctContrast="(contrastCorrect) => (pContrastOk = contrastCorrect)
-    " contrastRestriction="4.5" />
+          <ColorPickerContrastDisplay
+            headerText="Paragraph"
+            :bgColor="pBgColor"
+            :colorPickerColor="pColor"
+            @update:color="(color) => (this.pColor = color)"
+            @correctContrast="
+              (contrastCorrect) => (pContrastOk = contrastCorrect)
+            "
+            :contrastRestriction="4.5"
+          />
 
           <div class="flex flex-row justify-center gap-3">
-            <button @click="toggleHint"
+            <button
+              @click="toggleHint"
               class="size-12 rounded-lg bg-axolotl-light shadow-small-drop-shadow hover:bg-axolotl-dark dark:bg-axolotl-dark hover:dark:bg-axolotl-light forced-colors:text-[ButtonText] forced-colors:outline forced-colors:outline-[ButtonBorder]"
-              :title="showHint ? `Hide hint` : `Show hint`">
+              :title="showHint ? `Hide hint` : `Show hint`"
+            >
               <Icon name="lucide:lightbulb" class="size-8" />
             </button>
-            <button @click="initializeColors"
+            <button
+              @click="initializeColors"
               class="size-12 rounded-lg bg-blue-5-light shadow-small-drop-shadow hover:bg-blue-5-dark dark:bg-blue-4 hover:dark:bg-blue-2-dark forced-colors:text-[ButtonText] forced-colors:outline forced-colors:outline-[ButtonBorder]"
-              title="Reset colors">
+              title="Reset colors"
+            >
               <Icon name="lucide:rotate-ccw" class="size-7" />
             </button>
           </div>
@@ -185,7 +214,7 @@ Let’s finish off with a quote from the MDN web docs:
         <div class="flex flex-col gap-4" v-if="showHint">
           <p class="text-center">
             <b>Hint:</b> The paragraph should have a contrast ratio of at least
-            4.5 : 1, the header of at least 3 : 1.<br />
+            4.5&nbsp;:&nbsp;1, the header of at least 3&nbsp;:&nbsp;1.<br />
             Use the color pickers to adjust the colors.
           </p>
         </div>
