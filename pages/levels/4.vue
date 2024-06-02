@@ -27,10 +27,10 @@ Let’s finish off with a quote from the MDN web docs:
       code,
       defaultCode: code,
       task: "Make the text stand out!",
-      headerBgColor: "",
-      pBgColor: "",
-      headerColor: "",
-      pColor: "",
+      headerBgColor: "#000000",
+      pBgColor: "#000000",
+      headerColor: "#000000",
+      pColor: "#000000",
       showHint: false,
       headerContrastOk: false,
       pContrastOk: false,
@@ -102,7 +102,7 @@ Let’s finish off with a quote from the MDN web docs:
       if (g.length == 1) g = "0" + g;
       if (b.length == 1) b = "0" + b;
 
-      return "#" + r + g + b;
+      return `#${r}${g}${b}`;
     },
 
     initializeColors() {
@@ -128,19 +128,19 @@ Let’s finish off with a quote from the MDN web docs:
 </script>
 <template>
   <Level :markdown :task :isCorrect :levelNumber="4">
-    <div class="flex h-full w-full flex-col gap-8">
+    <div class="flex h-full w-full flex-col gap-8 justify-start">
       <div
-        class="flex flex-1 flex-col justify-start gap-4 rounded-2xl border-2 border-blue-4 p-8 pt-4 shadow-small-drop-shadow *:flex *:flex-1 *:flex-col *:items-center *:gap-4"
+        class="flex flex-col justify-start grow rounded-2xl border-2 border-blue-4 p-8 pt-4 shadow-small-drop-shadow *:flex *:items-center gap-4 "
         :style="{ backgroundColor: headerBgColor }">
-        <h1 class="font-heading text-3xl" :style="{
+        <h1 class="font-heading text-3xl self-center" :style="{
     color: headerColor,
   }">
           About Axolotls
         </h1>
         <div title="A short text about axolotls and accessibility"
-          class="flex-1 place-items-center self-stretch text-pretty rounded-2xl p-4 text-center shadow-small-drop-shadow forced-colors:outline"
+          class="flex-col text-pretty rounded-2xl p-4 shadow-small-drop-shadow forced-colors:outline [&>p]:text-left"
           :style="{ backgroundColor: pBgColor }">
-          <p class="text-left" :style="{
+          <p :style="{
     color: pColor,
   }">
             The axolotl is a unique amphibian species native to Mexico. It is
@@ -148,7 +148,7 @@ Let’s finish off with a quote from the MDN web docs:
             Axolotls have become popular pets due to their fascinating
             characteristics.
           </p>
-          <p class="text-left" :style="{
+          <p :style="{
     color: pColor,
   }">
             However, as humans, we don't possess the same regenerative abilities
