@@ -65,6 +65,7 @@ export default defineComponent({
       <div class="whitespace-pre-wrap">{{ before }}</div>
       <div
         v-if="showHint"
+        aria-live="polite"
         class="whitespace-pre-wrap bg-hint-highlight-light dark:bg-hint-highlight-dark"
       >
         {{ hint }}
