@@ -1,7 +1,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 
-const code = `    <div @click=""></div>`;
+const code = `    `;
 
 export default defineComponent({
   data: () => {
@@ -21,7 +21,7 @@ Firstly, it makes it easier for people to navigate with a keyboard or screen rea
   },
   computed: {
     isCorrect(): boolean {
-      return /<button>Click me!<\/button>/.test(
+      return /<button>\s*Click me!\s*<\/button>/.test(
         this.code,
       );
     },
@@ -41,7 +41,7 @@ Firstly, it makes it easier for people to navigate with a keyboard or screen rea
         class="flex flex-1 flex-row gap-8 rounded-2xl border-2 border-blue-4 bg-blue-3-light p-8 pt-6 shadow-small-drop-shadow *:flex *:flex-1 *:flex-col *:items-center *:gap-4 dark:bg-blue-3-dark"
       >
         <div title="Wrong use of HTML elements">
-          <Icon name="mdi:code" size="2rem" />
+          <Icon name="dashicons:no" size="2rem" />
           <div
             class="grid flex-1 place-items-center self-stretch text-pretty rounded-2xl bg-blue-5-light p-4 text-center shadow-small-drop-shadow dark:bg-blue-5-dark forced-colors:outline"
           >
@@ -58,7 +58,7 @@ Firstly, it makes it easier for people to navigate with a keyboard or screen rea
           </div>
         </div>
         <div title="Intended use of HTML elements">
-          <Icon name="mdi:code" size="2rem" />
+          <Icon name="dashicons:yes" size="2rem" />
           <div
             class="grid flex-1 place-items-center text-center self-stretch rounded-2xl bg-blue-5-light p-4 shadow-small-drop-shadow dark:bg-blue-5-dark forced-colors:outline"
           >
@@ -68,17 +68,18 @@ Firstly, it makes it easier for people to navigate with a keyboard or screen rea
               :class="{
                 '[&_button]:bg-axolotl-light': coloredButton,
                 '[&_button]:dark:bg-axolotl-dark': coloredButton,
-              }"
+              }" @click="coloredButton = !coloredButton"
             ></div>
           </div>
         </div>
       </div>
       <div>
         <SingleLineCodeEditor
-          before="<body>"
+          before='<body>
+    <div @click= "changeColor">Click me!</div>',
           :defaultCode="defaultCode"
           after="</body>"
-          hint="    <--! Make the <div>-Tag into a button -->"
+          hint="    <--! Use a <button> instead of the <div> -->"
           :isCorrect
           v-model:currentCode="code"
         ></SingleLineCodeEditor>
