@@ -2,24 +2,18 @@
 import { defineComponent } from "vue";
 import Level from "~/components/Level.vue";
 
-/*
-
-
-
-
-
-*/
-
 const code = `    <p class="result"></p>`;
 
 export default defineComponent({
   data() {
     return {
-      markdown: `There are some parts of a website, which can't be made accessible by simply using native HTML elements, which you learned about in the previous level. For example, look at this small application for throwing dice digitally. After clicking on the button, screen reader wouldn't be notified that something has changed. They would have manually search the part of the website that has changed. Not very user-friendly.
+      markdown: `In the previous level, you learned about native HTML elements. They greatly help in making a webpage accessible. Still, there are some parts of a website that can't be made accessible by simply using these native HTML elements. For example, look at this small application for throwing dice digitally. After clicking on the button, screen reader users wouldn't be notified that something has changed. They have to manually search for the updated part of the website. Not very user-friendly.
 
-That's where ARIA comes in. ARIA, which stands for "Accessible Rich Internet Applications", is a web standard, which allows websites to improve their accessibility. For example, it has an \`aria-live\`, which tells screen readers, that this part of the website is going to change, and that those changes should be read out loud. \`aria-live="assertive"\` reads the changes out loud instantly, while \`aria-live="polite"\` waits until the screen reader has finished what it's currently saying.
+That's where ARIA comes in. ARIA, short for "Accessible Rich Internet Applications", is a web standard, which allows websites to improve their accessibility. For example, it has an \`aria-live\` property, telling screen readers that this part of the website is going to change, and that those changes should be read out loud. \`aria-live="assertive"\` reads the changes out loud instantly, while \`aria-live="polite"\` waits until the screen reader has finished what it's currently saying.
 
-There are many more ARIA attributes. For more information, check out the links below!
+There are many more ARIA attributes. They can be divided into three categories: roles, properties, and states. Roles define the purpose of an element. Properties describe the element's characteristics. States describe the current conditions of the element. States differ from properties in that they can be changed dynamically with JavaScript over time, while properties are static.
+
+For more information, check out the links below!
 
 ## Links
 - [WAI-ARIA basics (MDN)](https://developer.mozilla.org/en-US/docs/Learn/Accessibility/WAI-ARIA_basics)
@@ -48,13 +42,15 @@ There are many more ARIA attributes. For more information, check out the links b
       );
     },
     screenReader(): string {
-      return `"Throw dice" button. ${this.isCorrect ? this.results.join(", ") : "3"}`;
+      return `"Throw dice" button. ${this.results.join(", ")}`;
     },
   },
   methods: {
     throwDice() {
       this.result = Math.floor(Math.random() * 6) + 1;
-      this.results.push(this.result);
+      if (this.isCorrect) {
+        this.results.push(this.result);
+      }
     },
   },
 });
