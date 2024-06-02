@@ -1,8 +1,7 @@
 <template>
   <div
-    class="place-items-center h-screen bg-[url('~/assets/img/error-page-background.svg')] bg-repeat"
-  >
-  </div>
+    class="h-screen place-items-center bg-[url('~/assets/img/error-page-background.svg')] bg-repeat"
+  ></div>
 </template>
 
 <script>
