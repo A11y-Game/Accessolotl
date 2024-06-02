@@ -1,12 +1,12 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 
-const code = `    `;
+const code = `    <div @click="switchButtonColor">Click me!</div>`;
 
 export default defineComponent({
   data: () => {
     return {
-      markdown: `What’s the deal with POSH? POSH stands for \'Plain Old Semantix HTML\'. It basically means you should use the right HTML elements for their intended purpose, like using a button instead of a div with a click function.
+      markdown: `What’s the deal with POSH? POSH stands for 'Plain Old Semantic HTML'. It basically means you should use the right HTML elements for their intended purpose, like using a button instead of a div with a click function.
 
 But why is it so important to use the right element?
 Firstly, it makes it easier for people to navigate with a keyboard or screen reader if the technology can recognise what it’s navigating to. Secondly, it’s also smaller in file size and easier to make responsive when developing for mobile phones. Lastly, why would you make an effort to make everything accessible, but then not use the built-in accessibility from plain HTML elements?
@@ -15,20 +15,20 @@ Firstly, it makes it easier for people to navigate with a keyboard or screen rea
 
       code,
       defaultCode: code,
-      task: "Help - I can’t navigate!",
-      coloredButton: false,
+      task: "Help – I can’t navigate!",
+      buttonIsColored: false,
     };
   },
   computed: {
     isCorrect(): boolean {
-      return /<button>\s*Click me!\s*<\/button>/.test(
+      return /<button\s+@click="switchButtonColor"\s*>\s*Click me!\s*<\/button>/.test(
         this.code,
       );
     },
   },
   methods: {
     switchButtonColor() {
-      this.coloredButton = !this.coloredButton;
+      this.buttonIsColored = !this.buttonIsColored;
     },
   },
 });
@@ -49,8 +49,8 @@ Firstly, it makes it easier for people to navigate with a keyboard or screen rea
               @click="switchButtonColor"
               class="truncate rounded-xl border-2 border-text-light p-4 text-xl dark:border-text-dark"
               :class="{
-                'bg-axolotl-light': coloredButton,
-                'dark:bg-axolotl-dark': coloredButton,
+                'bg-axolotl-light': buttonIsColored,
+                'dark:bg-axolotl-dark': buttonIsColored,
               }"
             >
               Click me!
@@ -60,23 +60,25 @@ Firstly, it makes it easier for people to navigate with a keyboard or screen rea
         <div title="Intended use of HTML elements">
           <Icon name="dashicons:yes" size="2rem" />
           <div
-            class="grid flex-1 place-items-center text-center self-stretch rounded-2xl bg-blue-5-light p-4 shadow-small-drop-shadow dark:bg-blue-5-dark forced-colors:outline"
+            class="grid flex-1 place-items-center self-stretch rounded-2xl bg-blue-5-light p-4 text-center shadow-small-drop-shadow dark:bg-blue-5-dark forced-colors:outline"
           >
             <div
-              v-html="code"
-              class="w-full truncate text-xl [&_button]:p-4 [&_button]:rounded-xl [&_button]:border-2 [&_button]:border-text-light [&_button]:dark:border-text-dark"
+              class="w-full truncate text-xl [&_button]:rounded-xl [&_button]:border-2 [&_button]:border-text-light [&_button]:p-4 [&_button]:dark:border-text-dark"
               :class="{
-                '[&_button]:bg-axolotl-light': coloredButton,
-                '[&_button]:dark:bg-axolotl-dark': coloredButton,
-              }" @click="coloredButton = !coloredButton"
-            ></div>
+                '[&_button]:bg-axolotl-light': buttonIsColored,
+                '[&_button]:dark:bg-axolotl-dark': buttonIsColored,
+              }"
+              v-if="isCorrect"
+            >
+              <button @click="switchButtonColor" class="focus:border-4 hover:border-4" >Click me!</button>
+            </div>
           </div>
         </div>
       </div>
       <div>
         <SingleLineCodeEditor
-          before='<body>
-    <div @click= "changeColor">Click me!</div>',
+          before="<body>"
+          ,
           :defaultCode="defaultCode"
           after="</body>"
           hint="    <--! Use a <button> instead of the <div> -->"
