@@ -67,7 +67,7 @@ export default {
         </button>
       </div>
     </div>
-    <div class="mt-32 flex-1 justify-center text-center text-6xl">
+    <div class="mt-16 flex-1 justify-center text-center text-6xl">
       <p class="font-heading">Welcome to</p>
       <div class="mb-8 mt-12 flex justify-center">
         <img
