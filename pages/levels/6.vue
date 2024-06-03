@@ -7,7 +7,7 @@ const code = `    <p class="result"></p>`;
 export default defineComponent({
   data() {
     return {
-      markdown: `In the previous level, you learned about native HTML elements. They greatly help in making a webpage accessible. Still, there are some parts of a website that can't be made accessible by simply using these native HTML elements. For example, look at this small application for throwing dice digitally. After clicking on the button, screen reader users wouldn't be notified that something has changed. They have to manually search for the updated part of the website. Not very user-friendly.
+      markdown: `In the previous level, you learned about native HTML elements. They greatly help in making a webpage accessible. Still, there are some parts of a website that can't be made accessible by simply using these native HTML elements. For example, look at this small application for throwing dice digitally. After clicking the button, screen reader users wouldn't be notified that something has changed. They have to manually search for the updated part of the website. Not very user-friendly.
 
 That's where ARIA comes in. ARIA, short for "Accessible Rich Internet Applications", is a web standard, which allows websites to improve their accessibility. For example, it has an \`aria-live\` property, telling screen readers that this part of the website is going to change, and that those changes should be read out loud. \`aria-live="assertive"\` reads the changes out loud instantly, while \`aria-live="polite"\` waits until the screen reader has finished what it's currently saying.
 
