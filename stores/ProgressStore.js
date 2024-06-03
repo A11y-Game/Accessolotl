@@ -34,7 +34,10 @@ export const useProgressStore = defineStore("progress", {
     init() {
       // Necessary for SSR
       if (typeof window !== "undefined") {
-        this.progress = parseInt(localStorage.getItem("progress")) || 0;
+        if (!localStorage.getItem("progress")) {
+          localStorage.setItem("progress", 0);
+        }
+        this.progress = parseInt(localStorage.getItem("progress"));
         this.currentLevel = parseInt(useRoute().fullPath.split("/")[2]) || 1;
         this.initialized = true;
       }
