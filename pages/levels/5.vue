@@ -1,12 +1,12 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 
-const code = `    <div onClick="switchButtonColor()">Click me!</div>`;
+const code = `    <div onclick="switchButtonColor()">Click me!</div>`;
 
 export default defineComponent({
   data: () => {
     return {
-      markdown: `What’s the deal with POSH? POSH stands for 'Plain Old Semantic HTML'. It basically means you should use the right HTML elements for their intended purpose, like using a button element for a clickable button instead of a div element.
+      markdown: `What’s the deal with POSH? POSH stands for 'Plain Old Semantic HTML'. It basically means you should use the right HTML elements for their intended purpose, like using a \`button\` element for a clickable button instead of a \`div\` element.
 
 But why is it so important to use the right element?
 Firstly, it makes it easier for people to navigate with a keyboard or screen reader if the technology can recognise what it’s navigating to. Secondly, it’s also smaller in file size and easier to make responsive when developing for mobile phones. Lastly, why would you make an effort to make everything accessible, but then not use the built-in accessibility from plain HTML elements?
@@ -15,13 +15,13 @@ Firstly, it makes it easier for people to navigate with a keyboard or screen rea
 
       code,
       defaultCode: code,
-      task: "Help – I can’t navigate!",
+      task: "Help – I can’t interact using the keyboard!",
       buttonIsColored: false,
     };
   },
   computed: {
     isCorrect(): boolean {
-      return /<button onClick="switchButtonColor\(\)"\s*>\s*Click me!\s*<\/button>/.test(
+      return /<button\s+onClick="switchButtonColor\(\)"\s*>\s*Click me!\s*<\/button>/i.test(
         this.code,
       );
     },
@@ -47,10 +47,9 @@ Firstly, it makes it easier for people to navigate with a keyboard or screen rea
           >
             <div
               @click="switchButtonColor"
-              class="truncate rounded-xl border-2 border-text-light p-4 text-xl dark:border-text-dark"
+              class="rounded-xl border-2 border-text-light p-4 text-xl dark:border-text-dark"
               :class="{
-                'bg-axolotl-light': buttonIsColored,
-                'dark:bg-axolotl-dark': buttonIsColored,
+                'bg-axolotl-light dark:bg-axolotl-dark': buttonIsColored,
               }"
             >
               Click me!
@@ -64,20 +63,18 @@ Firstly, it makes it easier for people to navigate with a keyboard or screen rea
           >
             <div
               @click="switchButtonColor"
-              class="truncate *:rounded-xl *:border-2 *:border-text-light *:p-4 *:text-xl [&_button]:m-4 hover:[&_button]:outline hover:[&_button]:outline-axolotl-light focus:[&_button]:outline focus:[&_button]:outline-axolotl-light dark:[&_button]:border-text-dark hover:dark:[&_button]:outline-axolotl-dark focus:dark:[&_button]:outline-axolotl-dark"
+              class="*:rounded-xl *:border-2 *:border-text-light *:p-4 *:text-xl *:-outline-offset-2 *:outline-axolotl-dark focus:*:outline focus:*:outline-4 dark:*:border-text-dark dark:*:outline-axolotl-light"
               v-html="code"
               :class="{
-                '*:bg-axolotl-light': buttonIsColored,
-                '*:dark:bg-axolotl-dark': buttonIsColored,
+                '*:bg-axolotl-light *:dark:bg-axolotl-dark': buttonIsColored,
               }"
-            />
+            ></div>
           </div>
         </div>
       </div>
       <div>
         <SingleLineCodeEditor
           before="<body>"
-          ,
           :defaultCode="defaultCode"
           after="</body>"
           hint="    <--! Use a <button> instead of the <div> -->"
