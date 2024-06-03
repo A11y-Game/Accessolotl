@@ -23,7 +23,7 @@ For more information, check out the links below!
       code,
       defaultCode: code,
       result:    3,
-      results: [3],
+      results:     [3],
     };
   },
   components: {
