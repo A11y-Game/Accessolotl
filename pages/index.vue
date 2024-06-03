@@ -29,7 +29,7 @@ export default {
 
 <template>
   <div
-    class="flex h-screen flex-col overflow-scroll bg-gradient-to-b from-blue-1-light to-blue-5-light p-16 dark:bg-gradient-to-b dark:from-blue-4 dark:to-blue-1-dark"
+    class="flex h-screen flex-col overflow-y-scroll bg-gradient-to-b from-blue-1-light to-blue-5-light p-16 dark:bg-gradient-to-b dark:from-blue-4 dark:to-blue-1-dark"
   >
     <div class="flex justify-between">
       <NuxtLink to="/">
