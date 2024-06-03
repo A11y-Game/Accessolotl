@@ -15,6 +15,12 @@ export default {
         this.$router,
       );
     }
+    if (/mobile/i.test(navigator.userAgent) && useRoute().fullPath != "/") {
+      alert(
+        "We are sorry to inform you that this game is not optimized for mobile devices. Please use a desktop browser.",
+      );
+      this.$router.push("/");
+    }
 
     if (!this.themeInitialized()) {
       this.initialize();
