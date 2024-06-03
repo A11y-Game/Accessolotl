@@ -22,7 +22,7 @@ For more information, check out the links below!
       task: `Make sure that the result of the dice throw is announced to screen reader users!`,
       code,
       defaultCode: code,
-      result: 3,
+      result:    3,
       results: [3],
     };
   },
