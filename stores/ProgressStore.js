@@ -66,7 +66,7 @@ export const useProgressStore = defineStore("progress", {
     jumpToLevel(level, router) {
       this.setLevel(level);
       if (router && accessCheck(this.progress, level)) {
-        router.push(`/levels/${this.currentLevel}`);
+        router.push(`/levels/${level}`);
       }
     },
     clearProgress() {
