@@ -25,19 +25,10 @@ Firstly, it makes it easier for people to navigate with a keyboard or screen rea
         this.code,
       );
     },
-    isButtonRegexCorrect(): boolean {
-      return /<button\s*[^>]*>([^<]*)<\/button>/.test(this.code);
-    },
   },
   methods: {
     switchButtonColor() {
       this.buttonIsColored = !this.buttonIsColored;
-    },
-    getButtonContent() {
-      return this.code.substring(
-        this.code.indexOf(">") + 1,
-        this.code.lastIndexOf("<"),
-      );
     },
   },
 });
@@ -72,19 +63,14 @@ Firstly, it makes it easier for people to navigate with a keyboard or screen rea
             class="grid flex-1 place-items-center self-stretch rounded-2xl bg-blue-5-light p-4 text-center shadow-small-drop-shadow dark:bg-blue-5-dark forced-colors:outline"
           >
             <div
-              class="w-full truncate py-4 text-xl [&_button]:rounded-xl [&_button]:border-2 [&_button]:border-text-light [&_button]:p-4 [&_button]:dark:border-text-dark"
+              @click="switchButtonColor"
+              class="truncate *:rounded-xl *:border-2 *:border-text-light *:p-4 *:text-xl [&_button]:m-4 hover:[&_button]:outline hover:[&_button]:outline-axolotl-light focus:[&_button]:outline focus:[&_button]:outline-axolotl-light dark:[&_button]:border-text-dark hover:dark:[&_button]:outline-axolotl-dark focus:dark:[&_button]:outline-axolotl-dark"
+              v-html="code"
               :class="{
-                '[&_button]:bg-axolotl-light': buttonIsColored,
-                '[&_button]:dark:bg-axolotl-dark': buttonIsColored,
+                '*:bg-axolotl-light': buttonIsColored,
+                '*:dark:bg-axolotl-dark': buttonIsColored,
               }"
-              v-if="isButtonRegexCorrect"
-            >
-              <button
-                @click="switchButtonColor"
-                class="hover:outline hover:outline-offset-4 focus:outline focus:outline-offset-4"
-                v-html="getButtonContent()"
-              ></button>
-            </div>
+            />
           </div>
         </div>
       </div>
