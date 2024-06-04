@@ -5,27 +5,31 @@ import { useThemeChanger } from "~/composables/themeChanger";
 
 export default {
   mounted() {
-    if (!this.progressStore.initialized) {
-      this.progressStore.init();
-    }
-
     if (!this.progressStore.accessGranted(this.progressStore.currentLevel)) {
       this.progressStore.jumpToLevel(
         this.progressStore.progress + 1,
         this.$router,
       );
     }
-
-    if (!this.themeInitialized()) {
-      this.initialize();
-    }
-  },
-
-  computed: {
-    ...mapStores(useProgressStore),
   },
   methods: {
     ...useThemeChanger(),
+  },
+  computed: {
+    ...mapStores(useProgressStore),
+  },
+  setup() {
+    watch(
+      () => useRoute().fullPath,
+      () => {
+        if (/mobile/i.test(navigator.userAgent)) {
+          alert(
+            "We are sorry to inform you that this game is not optimized for mobile devices. Please use a desktop browser.",
+          );
+          useRouter().push("/");
+        }
+      },
+    );
   },
 };
 </script>

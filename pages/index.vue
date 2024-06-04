@@ -4,18 +4,6 @@ import { mapStores } from "pinia";
 import { useThemeChanger } from "~/composables/themeChanger";
 
 export default {
-  mounted() {
-    if (!this.themeInitialized()) {
-      this.initialize();
-    }
-
-    if (!this.progressStore.initialized) {
-      this.progressStore.init();
-    }
-  },
-  methods: {
-    ...useThemeChanger(),
-  },
   setup() {
     definePageMeta({
       layout: false,
@@ -23,6 +11,9 @@ export default {
   },
   computed: {
     ...mapStores(useProgressStore),
+  },
+  methods: {
+    ...useThemeChanger(),
   },
 };
 </script>
