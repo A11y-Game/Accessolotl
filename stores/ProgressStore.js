@@ -68,7 +68,6 @@ export const useProgressStore = defineStore("progress", {
         alert(
           "We are sorry to inform you that this game is not optimized for mobile devices. Please use a desktop browser.",
         );
-        console.log(useRoute().fullPath);
       } else {
         this.setLevel(level);
         if (router && accessCheck(this.progress, level)) {
