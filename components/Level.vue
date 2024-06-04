@@ -34,8 +34,8 @@ export default defineComponent({
       if (this.isLastLevel) {
         this.fireConfetti();
       } else {
-        this.progressStore.incrementLevel();
         this.$router.push(this.progressStore.nextLevelString);
+        this.progressStore.incrementLevel();
       }
     },
     fireConfetti() {
