@@ -105,9 +105,7 @@ export default {
         <p class="w-96">accessibility</p>
         <p class="w-96 text-axolotl-dark dark:text-axolotl-light">axolotl</p>
       </div>
-      <div
-        class="mx-52 p-5 text-3xl leading-tight"
-      >
+      <div class="mx-52 p-5 text-3xl leading-tight">
         <p class="text-4xl font-bold">What are we doing?</p>
         <p class="text-justify indent-6">
           Our Project aims to teach society how important web-accessibility is.
