@@ -106,7 +106,7 @@ export default {
         <p class="w-96 text-axolotl-dark dark:text-axolotl-light">axolotl</p>
       </div>
       <div
-        class="mx-52 border-b-4 border-solid border-blue-4 p-5 text-3xl leading-tight"
+        class="mx-52 p-5 text-3xl leading-tight"
       >
         <p class="text-4xl font-bold">What are we doing?</p>
         <p class="text-justify indent-6">
@@ -134,32 +134,6 @@ export default {
             >Get more information here!</NuxtLink
           >
         </p>
-      </div>
-      <div class="my-16 text-4xl font-bold" id="about">
-        <p>About us</p>
-      </div>
-      <div class="flex place-content-evenly text-2xl">
-        <div>
-          <div
-            class="mb-4 h-[250px] w-[250px] rounded-full bg-[url('~/assets/img/teammitglied_marco.jpg')] bg-cover"
-          ></div>
-          <p class="font-semibold">Marco Janderka</p>
-          <p>Product Owner</p>
-        </div>
-        <div>
-          <div
-            class="mb-4 h-[250px] w-[250px] rounded-full bg-[url('~/assets/img/teammitglied_lisa.jpg')] bg-cover"
-          ></div>
-          <p class="font-semibold">Lisa-Marie Hörmann</p>
-          <p>Scrum Master</p>
-        </div>
-        <div>
-          <div
-            class="mb-4 h-[250px] w-[250px] rounded-full bg-[url('~/assets/img/teammitglied_felix.jpg')] bg-cover"
-          ></div>
-          <p class="font-semibold">Felix Wollmann</p>
-          <p>Team Member</p>
-        </div>
       </div>
     </div>
     <div class="mt-24 flex items-center justify-center">
