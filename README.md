@@ -21,6 +21,6 @@ Our Project aims to teach society how important web-accessibility is. We want to
 ## Authors
 
 Created by 3 students of [HTL Rennweg](https://www.htl.rennweg.at/) located in Vienna, Austria.
-* Marco Janderka ([@Pycxtv](https://github.com/Pycxtv))
-* Lisa-Marie Hörmann ([@dasechtelima](https://github.com/dasechtelima))
-* Felix Wollmann ([@felixwollmann](https://github.com/felixwollmann))
+* [@Pycxtv](https://github.com/Pycxtv)
+* [@dasechtelima](https://github.com/dasechtelima)
+* [@felixwollmann](https://github.com/felixwollmann)
