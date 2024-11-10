@@ -15,7 +15,7 @@
   "dependencies": {
     "@pinia/nuxt": "^0.5.1",
     "canvas-confetti": "^1.9.3",
-    "nuxt": "^3.10.3",
+    "nuxt": "^3.14.159",
     "pinia": "^2.1.7",
     "vue": "^3.4.19",
     "vue-draggable-plus": "^0.4.1",
