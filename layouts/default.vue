@@ -103,11 +103,11 @@ export default {
 
       <div class="ml-12 flex items-center justify-between">
         <NuxtLink
-          to="/#about"
+          to="/imprint"
           :external="true"
           class="font-heading text-2xl text-text-light underline dark:text-text-dark"
         >
-          About us</NuxtLink
+          Imprint</NuxtLink
         >
         &nbsp;
         <a
