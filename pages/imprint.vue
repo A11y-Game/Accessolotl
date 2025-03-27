@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex h-screen flex-col items-center overflow-scroll bg-blue-1-light px-24 py-16 text-xl leading-relaxed dark:bg-blue-1-dark"
+    class="flex h-screen flex-col items-center overflow-y-auto bg-blue-1-light px-24 py-16 text-xl leading-relaxed dark:bg-blue-1-dark"
   >
     <h1 class="text-3xl font-semibold">Impressum</h1>
     <div class="my-8">
