@@ -1,6 +1,6 @@
 <script>
 import { useThemeChanger } from "~/composables/themeChanger";
-import { useProgressStore } from "../stores/ProgressStore";
+import { useProgressStore } from "./stores/ProgressStore";
 import { mapStores } from "pinia";
 
 export default {
