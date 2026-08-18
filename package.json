@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@pinia/nuxt": "^0.5.1",
-    "canvas-confetti": "^1.9.3",
+    "canvas-confetti": "^1.9.4",
     "nuxt": "^3.16.0",
     "pinia": "^2.1.7",
     "vue": "^3.5.41",
@@ -25,10 +25,14 @@
   "devDependencies": {
     "@nuxtjs/google-fonts": "^3.2.0",
     "@nuxtjs/tailwindcss": "^6.11.4",
-    "@tailwindcss/typography": "^0.5.11",
-    "@types/canvas-confetti": "^1.6.4",
+    "@tailwindcss/typography": "^0.5.20",
+    "@types/canvas-confetti": "^1.9.0",
     "nuxt-icon": "^0.6.10",
     "prettier": "3.2.5",
     "prettier-plugin-tailwindcss": "^0.5.12"
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true,
+    "vue-demi@0.14.7": true
   }
 }
